@@ -1,0 +1,93 @@
+/* 전체 배경 및 텍스트 중앙 정렬 */
+body {
+    background-image: linear-gradient(to bottom, #F5B4B8 85%, #CA7C81 15%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 책장 구조 */
+.bookshelf {
+    text-align: center;
+    background-image: url(./img/shelf.svg);
+    background-size: cover;
+    padding: 10px;
+    width: 988px;
+    height: 905px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 감정 제목 스타일 */
+.bookshelf h1 {
+    color: #A64443;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* 책 선반 스타일 */
+.shelf {  
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 140px;
+    margin-top: 130px;
+}
+
+/* 책 표지 스타일 */
+.book-cover {
+    border: 20px;
+    width: 219px;
+    height: 278px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover:hover {
+    transform: scale(1.05);
+}
+
+/* 모달 스타일 */
+.modal {
+    position: fixed; /* 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100vw; /* 전체 너비 */
+    height: 100vh; /* 전체 높이 */
+    background-color: rgba(0, 0, 0, 0.6); /* 반투명 검정 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    visibility: hidden; /* 숨겨진 상태로 시작 */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+/* 모달이 활성화될 때 보이게 함 */
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 모달 콘텐츠 스타일 */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 80%;
+    text-align: center;
+}
+
+/* 닫기 버튼 스타일 */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}

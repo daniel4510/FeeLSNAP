@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-SemiBold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Medium';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Light';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    overscroll-behavior: none; /* 모든 방향에서 바운스 효과 비활성화 */
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+body {
+    background-color: #F5F5F5;
+    cursor: default;
+    -ms-overflow-style: none;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+header{
+    width: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    justify-items: center;
+}
+
+.nav {
+    width: 1030.64px;
+    height: 35.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17.5px;
+    margin-top: 27.25px;
+}   
+
+a {
+    text-decoration: none;
+}
+
+
+.nav .middle-nav{
+    display: flex;
+    list-style: none;
+}
+
+.nav .middle-nav li {
+    margin: 0 40px;
+}
+
+.nav .middle-nav li a{
+    color: #3F3E55;
+    font-family: 'Pretendard-Regular';
+}
+
+.nav .login {
+    color: #3F3E55;
+    font-family: 'Pretendard-Bold';
+}
+
+.main {
+    height: 982px;
+    text-align: center;
+    background-image: url('./img/background.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 10%;
+    background-size: contain;
+}
+
+.title{
+    margin-top: 198px;
+    font-size: 60px;
+    font-family: 'Pretendard-Bold';
+    color: #3F3E55;
+}
+
+.change-text {
+    display: inline-block;
+    height: 35px; /* 한 줄의 높이 */
+    overflow: hidden; /* 슬라이드 외 텍스트 숨기기 */
+    position: relative;
+}
+  
+.change-text span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 100%; /* 처음엔 보이지 않게 설정 */
+    left: 0;
+    font-family: 'Pretendard-SemiBold';
+    font-size: 35px;
+    color: #00A891;
+    text-align: center;
+    transition: transform 0.5s ease; /* 슬라이드 애니메이션 */
+}
+  
+
+.main button {
+    margin-top: 45px;
+    width: 181.1px;
+    height: 55.39px;
+    border-radius: 45px;
+    border-style: none;
+    background-color: #3F3E55;
+    color: #F5F5F5;
+    font-size: 17.58px;
+    cursor: pointer;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="bookshelf.css" />
+  </head>
+  <body>
+    <div class="bookshelf">
+      <h1 id="emotionTitle">Emotion</h1>
+      <div class="shelf">
+        <img id="cover1" class="book-cover" alt="Book Cover 1" />
+        <img id="cover2" class="book-cover" alt="Book Cover 2" />
+        <img id="cover3" class="book-cover" alt="Book Cover 3" />
+      </div>
+      <div class="shelf">
+        <img id="cover4" class="book-cover" alt="Book Cover 4" />
+        <img id="cover5" class="book-cover" alt="Book Cover 5" />
+        <img id="cover6" class="book-cover" alt="Book Cover 6" />
+      </div>
+    </div>
+
+    <!-- 모달 구조 -->
+    <div id="bookModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalThumbnail" alt="Book Cover" />
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+
+    <script>
+      const emotion = sessionStorage.getItem("emotion");
+      const books = JSON.parse(sessionStorage.getItem("bookList"));
+
+      document.getElementById("emotionTitle").innerText = emotion
+        ? emotion.toUpperCase()
+        : "Emotion";
+
+      books.forEach((book, index) => {
+        const coverImage = document.getElementById(`cover${index + 1}`);
+        if (coverImage) {
+          coverImage.src =
+            book.thumbnail ||
+            "https://via.placeholder.com/100x150?text=No+Image";
+          coverImage.onclick = () => showBookDetails(book);
+        }
+      });
+
+      function showBookDetails(book) {
+        document.getElementById("modalThumbnail").src =
+          book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image";
+        document.getElementById("modalTitle").innerText = book.title;
+
+        const descriptionElement = document.getElementById("modalDescription");
+        const fullDescription = book.description || "No description available.";
+
+        // 설명이 300자를 초과할 경우, 300자까지만 표시하고 "더보기" 추가
+        if (fullDescription.length > 90) {
+          descriptionElement.innerText = fullDescription.slice(0, 90) + "... ";
+        } else {
+          descriptionElement.innerText = fullDescription;
+        }
+
+        // "더보기" 링크 생성
+        const moreLink = document.createElement("a");
+        moreLink.href = book.infoLink || "#"; // 상세 페이지로 이동 (링크가 없으면 "#" 사용)
+        moreLink.innerText = "더보기";
+        moreLink.target = "_blank"; // 새 창에서 열기
+        moreLink.style.color = "blue";
+        moreLink.style.cursor = "pointer";
+        moreLink.style.textDecoration = "underline";
+
+        descriptionElement.appendChild(moreLink);
+
+        document.getElementById("bookModal").classList.add("show"); // 모달 표시
+      }
+
+      // 모달 외부 클릭 시 닫기 이벤트 설정
+      window.onclick = function (event) {
+        const modal = document.getElementById("bookModal");
+        if (event.target === modal) {
+          closeModal();
+        }
+      };
+
+      // 모달 닫기 함수
+      function closeModal() {
+        document.getElementById("bookModal").classList.remove("show");
+      }
+
+      function closeModal() {
+        document.getElementById("bookModal").classList.remove("show"); // 모달 숨기기
+      }
+    </script>
+  </body>
+</html>
