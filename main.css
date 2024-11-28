@@ -38,6 +38,7 @@
     margin: 0;
     padding: 0;
     width: auto;
+    box-sizing: border-box;
 }
 
 body {
@@ -59,6 +60,7 @@ header{
     right: 0;
     display: inline-block;
     justify-items: center;
+    z-index: 10;
 }
 
 .nav {
@@ -95,14 +97,35 @@ a {
     font-family: 'Pretendard-Bold';
 }
 
+/* 메인 섹션 */
 .main {
     height: 982px;
     text-align: center;
-    background-image: url('./img/background.svg');
+    background-image: url('./img/main-background.svg');
     background-repeat: no-repeat;
-    background-position: 0% 10%;
+    background-position: left bottom;
     background-size: contain;
-}
+    overflow-y: auto; /* 수직 스크롤 활성화 */
+    overflow-x: hidden; /* 수평 스크롤 비활성화 */
+    display: flex; /* 플렉스를 사용하여 정렬 */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+/* 초기 상태 */
+.mainpage {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* 부드러운 애니메이션 */
+  }
+  
+  .transition-title {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* 부드러운 애니메이션 */
+  }
+  
 
 .title{
     margin-top: 198px;
@@ -112,25 +135,26 @@ a {
 }
 
 .change-text {
-    display: inline-block;
-    height: 35px; /* 한 줄의 높이 */
-    overflow: hidden; /* 슬라이드 외 텍스트 숨기기 */
     position: relative;
-}
+    width: 1000px;
+    height: 42px; /* 텍스트 한 줄 높이 */
+    overflow: hidden; /* 컨테이너 밖 텍스트 숨김 */
+  }
   
-.change-text span {
-    display: block;
+  .change-text div {
     position: absolute;
     width: 100%;
-    top: 100%; /* 처음엔 보이지 않게 설정 */
     left: 0;
     font-family: 'Pretendard-SemiBold';
     font-size: 35px;
     color: #00A891;
     text-align: center;
     transition: transform 0.5s ease; /* 슬라이드 애니메이션 */
-}
+  }
   
+  .change-text div.visible {
+    font-weight: bold; /* 강조 스타일 추가 가능 */
+  }
 
 .main button {
     margin-top: 45px;
@@ -143,4 +167,179 @@ a {
     font-size: 17.58px;
     cursor: pointer;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.transition-background {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #BAE3DD);
+    height: 1273px;
+}
+
+.stepbystep {
+    background-image: linear-gradient(to top, #F5F5F5, #BAE3DD 30%);
+    height: 2145px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step-title {
+    font-family: 'Pretendard-Bold';
+    font-size: 60px;
+    height: 72px;
+    width: 462px;
+    color: #3F3E55;
+    margin: 41px 0 60px 0;
+}
+
+.first-box,
+.second-box,
+.third-box {
+    width: 1331px;
+    height: 501px;
+    position: relative;
+    background-color: #F5F5F5;
+    border-radius: 30px;
+    margin: 35px;
+}
+
+.first-box h1,
+.second-box h1,
+.third-box h1 {
+    font-family: 'Pretendard-Bold';
+    font-size: 40px;
+    color: #3F3E55;
+    position: absolute;
+    top: 117px;
+    left: 133px;
+}
+
+.first-box h1 > span {
+    font-family: 'Pretendard-Bold';
+    color: #00A891;
+}
+
+.emotions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 1049px;
+}
+
+.emotions h1 {
+    font-family: 'Pretendard-Bold';
+    font-size: 50px;
+    color: #3F3E55;
+    width: 1039px;
+    margin-top: 173px;
+}
+
+.emotions h1 > span {
+    color: #6B6A80;
+}
+
+.emotions h3 {
+    color: #00A891;
+    font-size: 25px;
+    width: 1039px;
+    margin-top: 8px;
+}
+
+.table {
+    display: flex;
+    flex-direction: column; /* 각 행을 세로로 정렬 */
+    gap: 45px; /* 행 간격 */
+    width: 1112px; /* 전체 테이블 너비 */
+    margin-top: 41px;
+}
+
+.row {
+    display: flex; /* 행을 가로로 배치 */
+
+    gap: 51px; /* 셀 간 간격 (선택) */
+}
+
+.cell {
+    width: 333px; /* 셀의 너비 */
+    height: 238px; /* 셀의 높이 */
+    background: #F5F5F5;
+    box-shadow: 0 7px 14px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.15);
+    border-radius: 26.25px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        transform: scale(1.02);
+        border: 2px solid; /* hover 시 보이도록 색상 변경 */
+    }
+}
+
+  .cell .title {
+    font-weight: bold;
+    font-family: 'Pretendard-Bold';
+    font-size: 17.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    position: absolute;
+    left: 37px;
+    top: -150px;
+  }
+
+  .cell .text {
+    color: #3F3E55;
+    font-family: 'Pretendard-Bold';
+    font-size: 22px;
+    position: absolute;
+    top: 90px;
+    left: 37px;
+  }
+
+  .cell .lg {
+    flex-grow: 2;
+  }
+
+  .cell.happy { .title{color: #FFC107;} border-color: #FFC107;}
+  .cell.sad { .title{color: #4682B4;} border-color: #4682B4;}
+  .cell.angry { .title{color: #D32F2F;} border-color: #D32F2F;}
+  .cell.surprise { .title{color: #E0CC19;} border-color: #E0CC19;}
+  .cell.neutral { .title{color: #00CED1;} border-color: #00CED1;}
+
+
+
+.footer {
+    height: 1038px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.shelf {
+    height: 412px;
+    margin-top: 180px;
+    h1 {
+        font-family: 'Pretendard-Bold';
+        font-size: 50px;
+        color: #3F3E55;
+        span {
+            color: #18B09B;
+        }
+    }
+}
+
+.shelf button {
+    background-color: #F5F5F5;
+    width: 147.8px;
+    height: 58.6px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: 'Pretendard-Bold';
+    word-spacing: -5%;
+}
+
+.foot {
+    height: 446px;
+    background-color: #00A891;
 }

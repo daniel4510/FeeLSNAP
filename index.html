@@ -19,27 +19,28 @@
           ><img class="logo" src="./img/logo-green.svg" alt=""
         /></a>
         <ul class="middle-nav">
-          <li><a href="#" class="nav-button nav-emotion">감정</a></li>
           <li><a href="#" class="nav-button nav-intro">소개</a></li>
+          <li><a href="#" class="nav-button nav-emotion">감정</a></li>
           <li><a href="#" class="nav-button">서재</a></li>
         </ul>
         <a href="#" class="login">로그인</a>
       </nav>
     </header>
-    <section class="main">
-      <div>
+    <div class="main">
+      <div class="mainpage">
         <div class="title">FeelSNAP</div>
-        <p class="change-text">
-          <span>마음 속의 감정 도서관</span>
-          <span>기억의 조각이 모여 완성되는 이야기</span>
-          <span>당신만의 이야기가 시작되는 순간</span>
-          <span>감정과 책이 만나는 교차점</span>
-          <span>당신의 내면에 새겨질 또 하나의 흔적</span>
-        </p>
+        <div class="change-text">
+          <div class="visible">마음 속의 감정 도서관</div>
+          <div>기억의 조각이 모여 완성되는 이야기</div>
+          <div>당신만의 이야기가 시작되는 순간</div>
+          <div>감정과 책이 만나는 교차점</div>
+          <div>당신의 내면에 새겨질 또 하나의 흔적</div>
+        </div>
         <button onclick="startEmotionDetection()">감정 입력하기</button>
       </div>
       <div class="transition-title">감정을 담아, 맞춤형 책 추천 서비스</div>
-    </section>
+    </div>
+    <div class="transition-background"></div>
     <section class="stepbystep">
       <div class="step-title">어떻게 사용할까요?</div>
       <div class="first-box">
@@ -62,6 +63,34 @@
     <section class="emotions">
       <h1><span>일상 속 다양한</span><br />감정들을 만나보세요.</h1>
       <h3>카메라를 사용하지 않아도 책을 추천받을 수 있어요.</h3>
+      <div class="table">
+        <!-- First Row -->
+        <div class="row">
+          <div class="cell happy">
+            <div class="title">Happy</div>
+            <div class="text">행복의 서재</div>
+          </div>
+          <div class="cell sad">
+            <div class="title">Sad</div>
+            <div class="text">슬픔에서의 지혜</div>
+          </div>
+          <div class="cell angry">
+            <div class="title">Angry</div>
+            <div class="text">마음의 안정</div>
+          </div>
+        </div>
+        <!-- Second Row -->
+        <div class="row">
+          <div class="cell surprise lg">
+            <div class="title">Surprise</div>
+            <div class="text">상상력을 자극하는 이야기 나무</div>
+          </div>
+          <div class="cell neutral">
+            <div class="title">Neutral</div>
+            <div class="text">일상의 즐거움</div>
+          </div>
+        </div>
+      </div>
     </section>
     <section class="footer">
       <div class="shelf">
@@ -73,5 +102,6 @@
 
     <script src="./findbook.js"></script>
     <script src="./main.js"></script>
+    <script src="./textchange.js"></script>
   </body>
 </html>
