@@ -39,7 +39,7 @@ body {
     font-size: 30px;
     margin-top: 53px;
     color: transparent; /* 텍스트 색상을 투명하게 설정 */
-    background: linear-gradient(to right, #45E3CD, #18B09B 50%);
+    background: linear-gradient(to right, #45E3CD, #18B09B 80%);
     -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
     background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
 }
@@ -50,8 +50,6 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 65px;
     margin-top: 50px;
-    width: 80%;
-    justify-content: center; /* 좌우 중앙 정렬 */
 }
 
 /* 책 카드 */
@@ -62,6 +60,11 @@ body {
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
+    transition: all 0.3s ease-out;
+}
+
+.book-card:hover {
+    transform: scale(1.02);
 }
 
 /* 표지 이미지 */
@@ -100,7 +103,7 @@ body {
 
 /* 더보기 링크 */
 .book-link {
-    font-size: 17px;
+    font-size: 14px;
     color: #17D5B7;
     cursor: pointer;
     text-decoration: none;
@@ -111,21 +114,4 @@ body {
     &:hover {
         text-decoration: underline;
     }
-}
-
-/* 서재에 추가 버튼 */
-.save-button {
-    font-family: 'Pretendard-Bold';
-    width: 123px;
-    height: 49px;
-    background: linear-gradient(to right, #46DEC9, #0CBEA5 50%);
-    color: white;
-    border: none;
-    border-radius: 15px;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 17px;
-    position: absolute;
-    top: 22px;
-    right: 29px;
 }

@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .clicked-button-wrap {
+    background: linear-gradient(to right, #46DEC9, #0CBEA5 50%);
+    --shadow: 0 2px 8px -1px rgba(39, 94, 254, 0.32);
+    box-shadow: var(--shadow);
+    width: 123px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    position: absolute;
+    top: 22px;
+    right: 29px;
+    border-radius: 15px;
+  }
+  
+  /* 기본 버튼 스타일 */
+  .save-button {
+    --background: linear-gradient(to right, #46DEC9, #0CBEA5 50%);
+    --text: #fff;
+    --font-size: 15px;
+    --duration: 0.44s;
+    --move-hover: -4px;
+    --shadow: 0 2px 8px -1px rgba(39, 94, 254, 0.32);
+    --shadow-hover: 0 4px 20px -2px rgba(38, 255, 81, 0.5);
+    --font-shadow: var(--font-size);
+    width: 123px;
+    height: 49px;
+    font-family: 'Pretendard-Bold';
+    line-height: var(--font-size);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    position: absolute;
+    top: 22px;
+    right: 29px;
+    font-size: var(--font-size);
+    background: var(--background);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transform: translateY(var(--y)) translateZ(0);
+    transition: transform var(--duration) ease, box-shadow var(--duration) ease;
+  }
+  
+  /* hover 상태 */
+  .save-button:hover {
+    --y: var(--move-hover);
+    --shadow: var(--shadow-hover);
+  }
+  
+  .save-button:hover span {
+    --m: calc(var(--font-size) * -1);
+  }
+  
+  /* 클릭된 버튼 (hover 비활성화) */
+  .clicked-button {
+    background-color: transparent; /* 배경색 고정 */
+    cursor: default !important; /* 커서 기본 상태 */
+    box-shadow: none !important; /* 그림자 제거 */
+    transform: none !important; /* 애니메이션 제거 */
+    transition: none !important; /* 전환 효과 제거 */
+  }
+  
+  .clicked-button:hover {
+    /* hover 상태에서 아무런 변화도 없도록 설정 */
+    --y: 0;
+    --shadow: none;
+  }
+  
+  /* 버튼 내부 텍스트 애니메이션 */
+  .save-button div {
+    display: flex;
+    overflow: hidden;
+    text-shadow: 0 var(--font-shadow) 0 var(--text);
+  }
+  .save-button div span {
+    display: block;
+    backface-visibility: hidden;
+    font-style: normal;
+    transition: transform var(--duration) ease;
+    transform: translateY(var(--m)) translateZ(0);
+  }
+  .save-button div span:nth-child(1) {
+    transition-delay: 0.05s;
+  }
+  .save-button div span:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  .save-button div span:nth-child(3) {
+    transition-delay: 0.15s;
+  }
+  .save-button div span:nth-child(4) {
+    transition-delay: 0.2s;
+  }
+  .save-button div span:nth-child(5) {
+    transition-delay: 0.25s;
+  }
+  .save-button div span:nth-child(6) {
+    transition-delay: 0.3s;
+  }
+  .save-button div span:nth-child(7) {
+    transition-delay: 0.35s;
+  }
+  .save-button div span:nth-child(8) {
+    transition-delay: 0.4s;
+  }
+  .save-button div span:nth-child(9) {
+    transition-delay: 0.45s;
+  }
+  .save-button div span:nth-child(10) {
+    transition-delay: 0.5s;
+  }
+  .save-button div span:nth-child(11) {
+    transition-delay: 0.55s;
+  }
+  
