@@ -5,6 +5,13 @@ async function moveToBookhouse() {
   window.location.href = "bookhouse.html";
 }
 
+// 감정 선택 시 emotionloading.html로 이동
+function selectEmotion(emotion) {
+  sessionStorage.setItem("selectedEmotion", emotion); // 선택한 감정을 저장
+  window.location.href = "emotionloading.html";
+}
+
+
 // 가로 스크롤 막기
 window.body.style.overflowX = "hidden";
 
