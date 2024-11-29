@@ -218,6 +218,14 @@ a {
     color: #00A891;
 }
 
+.third-text1 {
+    color: #6B6A80;
+}
+
+.third-text2 {
+    color: #8F8EA4;
+}
+
 .emotions {
     display: flex;
     flex-direction: column;
@@ -306,40 +314,3 @@ a {
   .cell.angry { .title{color: #D32F2F;} border-color: #D32F2F;}
   .cell.surprise { .title{color: #E0CC19;} border-color: #E0CC19;}
   .cell.neutral { .title{color: #00CED1;} border-color: #00CED1;}
-
-
-
-.footer {
-    height: 1038px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.shelf {
-    height: 412px;
-    margin-top: 180px;
-    h1 {
-        font-family: 'Pretendard-Bold';
-        font-size: 50px;
-        color: #3F3E55;
-        span {
-            color: #18B09B;
-        }
-    }
-}
-
-.shelf button {
-    background-color: #F5F5F5;
-    width: 147.8px;
-    height: 58.6px;
-    border-radius: 15px;
-    font-size: 20px;
-    font-family: 'Pretendard-Bold';
-    word-spacing: -5%;
-}
-
-.foot {
-    height: 446px;
-    background-color: #00A891;
-}
