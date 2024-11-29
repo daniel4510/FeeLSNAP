@@ -67,8 +67,8 @@ async function searchBooks(emotion) {
 }
 
 async function startEmotionDetection() {
-
     try {
+        // 감정 분석 요청
         const response = await fetch("http://127.0.0.1:5000/start_emotion_detection", { method: "POST" });
         const data = await response.json();
         const detectedEmotion = data.emotion;
@@ -76,11 +76,14 @@ async function startEmotionDetection() {
         // 감정에 맞는 도서 추천
         const books = await searchBooks(detectedEmotion);
 
-        // 도서 목록을 sessionStorage에 저장 후 bookshelf.html로 이동
+        // 도서 목록을 sessionStorage에 저장
         sessionStorage.setItem("bookList", JSON.stringify(books));
         sessionStorage.setItem("emotion", detectedEmotion);
+
         window.location.href = "bookshelf.html";
     } catch (error) {
         console.error("Error during emotion detection:", error);
     }
 }
+
+startEmotionDetection();

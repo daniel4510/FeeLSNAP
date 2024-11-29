@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Pretendard-SemiBold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  * {
+    overscroll-behavior: none; /* 모든 방향에서 바운스 효과 비활성화 */
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* html과 body를 전체 높이로 설정 */
+    overflow: hidden; /* 스크롤 비활성화 */
+  }
+  
+  .loading {
+    margin: 0;
+    height: 100vh; /* 전체 화면 높이 */
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+  }
+  
+  .loading h1 {
+    font-size: 30px;
+    font-family: 'Pretendard-SemiBold';
+    transform: translateY(-190%);
+    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    background: linear-gradient(to right, #29D2BB, #00A891 50%);
+    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+  }
+  
+  .dots {
+    display: inline; /* 점들을 별도 스타일로 유지 */
+  }
+  

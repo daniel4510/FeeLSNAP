@@ -1,3 +1,7 @@
+async function moveToLoading() {
+  window.location.href = "loading.html";
+}
+
 
 // 가로 스크롤 막기
 window.body.style.overflowX = "hidden";

@@ -147,7 +147,10 @@ a {
     left: 0;
     font-family: 'Pretendard-SemiBold';
     font-size: 35px;
-    color: #00A891;
+    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    background: linear-gradient(to right, #29D2BB, #00A891 50%);
+    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
     text-align: center;
     transition: transform 0.5s ease; /* 슬라이드 애니메이션 */
   }
