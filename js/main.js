@@ -1,7 +1,9 @@
 async function moveToLoading() {
   window.location.href = "loading.html";
 }
-
+async function moveToBookhouse() {
+  window.location.href = "bookhouse.html";
+}
 
 // 가로 스크롤 막기
 window.body.style.overflowX = "hidden";

@@ -1,4 +1,4 @@
-const apiKey = "AIzaSyDlDBQMZYOMNyjtYISOJoM6sLjzWJeLVfY"; // Google Books API 키
+const apiKey = "bfd2e2b966618a3d3fb2035d90530ba6"; // 카카오 REST API 키
 
 const emotionConfig = {
     happy: { keywords: ["행복", "긍정"], category: "자기계발" },
@@ -13,48 +13,46 @@ async function searchBooks(emotion) {
     const config = emotionConfig[emotion];
     const uniqueBooks = new Map();
 
-    // 모든 키워드에 대해 책을 불러오고 중복 없이 Map에 추가
+    // 모든 키워드에 대해 최대 50권씩 요청
     for (let keyword of config.keywords) {
-        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=40&key=${apiKey}`);
+        const response = await fetch(`https://dapi.kakao.com/v3/search/book?query=${keyword}&size=50`, {
+            headers: {
+                Authorization: `KakaoAK ${apiKey}`
+            }
+        });
+
         const data = await response.json();
 
-        data.items?.forEach((book) => {
-            const volumeInfo = book.volumeInfo;
-            const title = volumeInfo.title;
-
-            // 썸네일 URL을 고해상도로 변경 시도
-            let thumbnail = volumeInfo.imageLinks?.extraLarge || 
-                            volumeInfo.imageLinks?.large ||
-                            volumeInfo.imageLinks?.medium ||
-                            volumeInfo.imageLinks?.thumbnail ||
-                            "https://via.placeholder.com/100x150?text=No+Image";
-            
-            if (thumbnail.includes("zoom=")) {
-                thumbnail = thumbnail.replace(/zoom=\d+/, "zoom=3");
-            }
+        data.documents?.forEach((book) => {
+            const title = book.title;
 
             // 책 제목으로 중복 제거
             if (!uniqueBooks.has(title)) {
                 uniqueBooks.set(title, {
                     title: title,
-                    authors: volumeInfo.authors || ["Unknown Author"],
-                    thumbnail: thumbnail,
-                    description: volumeInfo.description || "No description available",
-                    infoLink: volumeInfo.infoLink
+                    authors: book.authors.length ? book.authors : ["Unknown Author"],
+                    thumbnail: book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image",
+                    description: book.contents || "No description available",
+                    infoLink: book.url
                 });
             }
         });
     }
 
-    // Map을 배열로 변환한 후, 랜덤으로 6개만 남기고 나머지 삭제
-    let books = Array.from(uniqueBooks.values());
-    if (books.length > 6) {
-        books = books.sort(() => 0.5 - Math.random()).slice(0, 6);
+    // 300권 이상 중복 제거된 데이터를 수집
+    const allBooks = Array.from(uniqueBooks.values());
+
+    // 6권을 랜덤으로 선택
+    let selectedBooks = [];
+    if (allBooks.length > 6) {
+        selectedBooks = allBooks.sort(() => 0.5 - Math.random()).slice(0, 6);
+    } else {
+        selectedBooks = allBooks;
     }
 
     // 6권 미만일 경우 대체 정보 추가
-    while (books.length < 6) {
-        books.push({
+    while (selectedBooks.length < 6) {
+        selectedBooks.push({
             title: "Book Not Available",
             authors: ["Unknown Author"],
             thumbnail: "https://via.placeholder.com/100x150?text=No+Image",
@@ -63,7 +61,7 @@ async function searchBooks(emotion) {
         });
     }
 
-    return books;
+    return selectedBooks;
 }
 
 async function startEmotionDetection() {

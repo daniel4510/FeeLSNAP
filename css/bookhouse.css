@@ -1,0 +1,121 @@
+/* Reset */
+body, h1, p, a, img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #3f3e55;
+    margin: 20px;
+  }
+  
+  /* Bookhouse Container */
+  .bookhouse {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .bookhouse h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00a891;
+  }
+  
+  /* Shelf for books */
+  .shelf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .book-cover {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #00a891;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .book-cover:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .modal-content img {
+    width: 150px;
+    height: 200px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+  
+  .modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #3f3e55;
+  }
+  
+  .modal-content p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  
+  .modal-content a {
+    color: #00a891;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .modal-content a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Close Button */
+  .modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3f3e55;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .modal .close:hover {
+    color: #00a891;
+  }
+  

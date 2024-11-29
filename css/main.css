@@ -92,7 +92,7 @@ a {
     font-family: 'Pretendard-Regular';
 }
 
-.nav .login {
+.nav .nav-shelf {
     color: #3F3E55;
     font-family: 'Pretendard-Bold';
 }
@@ -101,7 +101,7 @@ a {
 .main {
     height: 982px;
     text-align: center;
-    background-image: url('./img/main-background.svg');
+    background-image: url('../img/main-background.svg');
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: contain;
@@ -285,6 +285,11 @@ a {
     &:hover {
         transform: scale(1.02);
         border: 2px solid; /* hover 시 보이도록 색상 변경 */
+        transition: all 0.3s ease-out;
+        cursor: pointer;
+        .arrow {
+            display: flex;
+        }
     }
 }
 
@@ -306,6 +311,13 @@ a {
     position: absolute;
     top: 90px;
     left: 37px;
+  }
+
+  .cell .arrow {
+    display: none;
+    position: absolute;
+    bottom: 22px;
+    right: 23.5px;
   }
 
   .cell .lg {

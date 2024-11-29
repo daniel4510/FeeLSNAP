@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bookhouse</title>
+    <link rel="stylesheet" href="./css/bookhouse.css" />
+  </head>
+  <body>
+    <div class="bookhouse">
+      <h1>My Bookhouse</h1>
+      <!-- 초기화 버튼 -->
+      <button id="clearButton" class="clear-button">서재 초기화</button>
+      <div class="shelf" id="bookShelf">
+        <!-- 책 표지가 동적으로 추가됩니다 -->
+      </div>
+    </div>
+
+    <!-- Modal for book details -->
+    <div id="bookModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalThumbnail" alt="Book Cover" />
+        <h2 id="modalTitle"></h2>
+        <p id="modalAuthor"></p>
+        <p id="modalEmotion"></p>
+        <p id="modalDate"></p>
+        <a id="modalLink" href="#" target="_blank">More Details</a>
+        <!-- 삭제 버튼 -->
+        <button id="deleteButton" class="delete-button">삭제</button>
+      </div>
+    </div>
+
+    <script src="./js/bookhouse.js"></script>
+  </body>
+</html>

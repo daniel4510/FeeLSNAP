@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Prosto+One&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
   </head>
   <body>
     <header>
@@ -22,9 +22,8 @@
         <ul class="middle-nav">
           <li><a href="#" class="nav-button nav-intro">소개</a></li>
           <li><a href="#" class="nav-button nav-emotion">감정</a></li>
-          <li><a href="#" class="nav-button">서재</a></li>
         </ul>
-        <a href="#" class="login">로그인</a>
+        <a href="./bookhouse.html" class="nav-shelf">서재</a>
       </nav>
     </header>
     <div class="main">
@@ -69,14 +68,23 @@
           <div class="cell happy">
             <div class="title">Happy</div>
             <div class="text">행복의 서재</div>
+            <div class="arrow">
+              <img src="./img/arrow/happy_arrow.svg" alt="" />
+            </div>
           </div>
           <div class="cell sad">
             <div class="title">Sad</div>
             <div class="text">슬픔에서의 지혜</div>
+            <div class="arrow">
+              <img src="./img/arrow/sad_arrow.svg" alt="" />
+            </div>
           </div>
           <div class="cell angry">
             <div class="title">Angry</div>
             <div class="text">마음의 안정</div>
+            <div class="arrow">
+              <img src="./img/arrow/angry_arrow.svg" alt="" />
+            </div>
           </div>
         </div>
         <!-- Second Row -->
@@ -84,10 +92,16 @@
           <div class="cell surprise lg">
             <div class="title">Surprise</div>
             <div class="text">상상력을 자극하는 이야기 나무</div>
+            <div class="arrow">
+              <img src="./img/arrow/suprise_arrow.svg" alt="" />
+            </div>
           </div>
           <div class="cell neutral">
             <div class="title">Neutral</div>
             <div class="text">일상의 즐거움</div>
+            <div class="arrow">
+              <img src="./img/arrow/neutral_arrow.svg" alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -99,7 +113,7 @@
         </div>
         <div class="shelf-second">
           <h1><span>서재</span>에<br />당신의 이야기를<br />담아보세요.</h1>
-          <button>자세히보기</button>
+          <button onclick="moveToBookhouse()">자세히보기</button>
         </div>
       </div>
       <div class="foot">
@@ -117,7 +131,7 @@
           <div class="foot-menu">
             <a href="#">기능소개</a>
             <a href="#">감정</a>
-            <a href="#">서재</a>
+            <a href="./bookhouse.html">서재</a>
           </div>
           <div class="my-url">
             <a
@@ -134,7 +148,7 @@
       </div>
     </section>
 
-    <script src="./main.js"></script>
-    <script src="./textchange.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/textchange.js"></script>
   </body>
 </html>
