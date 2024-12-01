@@ -3,7 +3,7 @@ window.addEventListener("popstate", function () {
   window.location.href = "index.html";
 });
 
-// bookshelf.html이 로드될 때 브라우저 히스토리 상태 추가
+// bookshelf.html가 로드될 때 브라우저 히스토리 상태 추가
 window.history.pushState({}, "Bookshelf", window.location.href);
 
 const emotion = sessionStorage.getItem("emotion");

@@ -5,7 +5,6 @@ const filterButtons = document.querySelectorAll(".filter-button");
 
 let currentBookIndex = null;
 
-// Populate the bookshelf
 function renderBooks(books) {
   bookShelf.innerHTML = "";
   books.forEach((book, index) => {
@@ -21,10 +20,9 @@ function renderBooks(books) {
 
 renderBooks(bookHouse);
 
-// Filter books by emotion
+// 감정 필터링
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    // Manage active button state
     filterButtons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
 
@@ -38,7 +36,7 @@ filterButtons.forEach((button) => {
   });
 });
 
-// Real-time search books by title
+// 책 찾기
 searchInput.addEventListener("input", () => {
   const query = searchInput.value.toLowerCase();
   const filteredBooks = bookHouse.filter((book) =>
@@ -57,7 +55,7 @@ document.getElementById("clearButton").onclick = () => {
   }
 };
 
-// Show book details in modal
+// 책 세부 정보 띄우기
 function showBookDetails(book, index) {
   currentBookIndex = index;
   document.getElementById("modalThumbnail").src =
@@ -72,12 +70,12 @@ function showBookDetails(book, index) {
   document.getElementById("bookModal").classList.add("show");
 }
 
-// Close modal
+// 모달 닫기
 function closeModal() {
   document.getElementById("bookModal").classList.remove("show");
 }
 
-// Delete book
+// 책 삭제
 document.getElementById("deleteButton").onclick = () => {
   if (currentBookIndex !== null) {
     bookHouse.splice(currentBookIndex, 1);

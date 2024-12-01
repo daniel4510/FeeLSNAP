@@ -1,4 +1,3 @@
-/* Reset */
 body, h1, p, a, img {
     margin: 0;
     padding: 0;
@@ -12,7 +11,7 @@ body, h1, p, a, img {
     margin: 20px;
   }
   
-  /* Bookhouse Container */
+  /* 책장 */
   .bookhouse {
     text-align: center;
     padding: 20px;
@@ -94,7 +93,7 @@ body, h1, p, a, img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
-  /* Modal */
+  /* 책 세부 정보 */
   .modal {
     display: none;
     position: fixed;

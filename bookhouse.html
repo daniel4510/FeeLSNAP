@@ -11,7 +11,7 @@
       <h1>My Bookhouse</h1>
       <!-- 초기화 버튼 -->
       <button id="clearButton" class="clear-button">서재 초기화</button>
-      <!-- Emotion Filter -->
+      <!-- 감정 필터 -->
       <div class="filter-bar">
         <button class="filter-button" data-emotion="all">All</button>
         <button class="filter-button" data-emotion="happy">Happy</button>
@@ -21,16 +21,14 @@
         <button class="filter-button" data-emotion="neutral">Neutral</button>
       </div>
 
-      <!-- Search Bar -->
+      <!-- 검색창 -->
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Search books..." />
       </div>
-      <div class="shelf" id="bookShelf">
-        <!-- 책 표지가 동적으로 추가됩니다 -->
-      </div>
+      <div class="shelf" id="bookShelf"></div>
     </div>
 
-    <!-- Modal for book details -->
+    <!-- 책 세부 정보 -->
     <div id="bookModal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
