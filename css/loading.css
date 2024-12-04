@@ -38,3 +38,6 @@
     display: inline; /* 점들을 별도 스타일로 유지 */
   }
   
+  #video {
+    display: none; /* 비디오를 화면에서 숨김 */
+}

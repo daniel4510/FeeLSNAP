@@ -45,7 +45,6 @@ body {
     background-color: #F5F5F5;
     cursor: default;
     -ms-overflow-style: none;
-
 }
 
 ::-webkit-scrollbar {
@@ -77,6 +76,10 @@ a {
     text-decoration: none;
 }
 
+nav img {
+    cursor: pointer;
+}
+
 
 .nav .middle-nav{
     display: flex;
@@ -87,9 +90,10 @@ a {
     margin: 0 40px;
 }
 
-.nav .middle-nav li a{
+.nav .middle-nav li{
     color: #3F3E55;
     font-family: 'Pretendard-Regular';
+    cursor: pointer;
 }
 
 .nav .nav-shelf {

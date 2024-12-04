@@ -1,51 +1,48 @@
 from flask import Flask, render_template, jsonify, request
-from flask_cors import CORS
+from flask_cors import CORS  # CORS 라이브러리 가져오기
 import cv2
+import numpy as np
+import base64
 from fer import FER
-import time
-from collections import Counter
 
-# Flask 앱 초기화
 app = Flask(__name__)
-CORS(app)  # 모든 경로에 대해 CORS 활성화
 
-# FER 감정 인식 모델 초기화
+# CORS 설정
+CORS(app, resources={r"/*": {"origins": "*"}})  # 모든 도메인 허용 (안전하지 않을 수 있음)
+
+# FER 모델 초기화
 emotion_detector = FER()
 
-def get_dominant_emotion():
-    # 카메라 초기화
-    cap = cv2.VideoCapture(0)
-    emotion_counts = []
-    start_time = time.time()
+def get_dominant_emotion(image_data):
+    try:
+        # Base64 이미지를 디코딩하여 처리
+        image_data = base64.b64decode(image_data.split(',')[1])
+        np_arr = np.frombuffer(image_data, np.uint8)
+        img = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
-    # 3초 동안 감정 예측 기록
-    while time.time() - start_time < 3:
-        ret, frame = cap.read()
-        if not ret:
-            break
-        emotions = emotion_detector.detect_emotions(frame)
+        # 감정 예측
+        emotions = emotion_detector.detect_emotions(img)
         if emotions:
-            # 예측된 감정 중 가장 높은 확률의 감정 추가
-            emotion = emotion_detector.top_emotion(frame)[0]
-            emotion_counts.append(emotion)
-
-    cap.release()
-
-    # 3초 동안 가장 많이 예측된 감정 찾기
-    if emotion_counts:
-        most_common_emotion = Counter(emotion_counts).most_common(1)[0][0]
-        return most_common_emotion
-    return "No emotion detected"
-
-@app.route("/")
-def index():
-    return render_template("index.html")
+            emotion, _ = emotion_detector.top_emotion(img)
+            return emotion
+        return "neutral"  # 기본값
+    except Exception as e:
+        print(f"Error decoding or processing image: {e}")
+        return "neutral"
 
 @app.route("/start_emotion_detection", methods=["POST"])
 def start_emotion_detection():
-    # 3초 동안 얼굴 인식 후 결과 반환
-    emotion = get_dominant_emotion()
-    return jsonify({"emotion": emotion})
+    try:
+        data = request.get_json()
+        image_data = data.get("image")
+        if not image_data:
+            return jsonify({"error": "No image provided"}), 400
+
+        emotion = get_dominant_emotion(image_data)
+        return jsonify({"emotion": emotion})
+    except Exception as e:
+        print(f"Error processing request: {e}")
+        return jsonify({"error": "Failed to process emotion detection"}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=True)

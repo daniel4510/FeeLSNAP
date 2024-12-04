@@ -154,6 +154,11 @@
     justify-content: space-between;
 }
 
+.foot-menu div{
+    cursor: pointer;
+    color: #F5F5F5;
+}
+
 .my-url {
     margin-top: 42px;
 

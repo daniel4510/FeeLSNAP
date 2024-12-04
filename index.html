@@ -16,14 +16,23 @@
   <body>
     <header>
       <nav class="nav">
-        <a class="gohome" href="#"
-          ><img class="logo" src="./img/logo-green.svg" alt=""
-        /></a>
+        <img
+          class="logo"
+          src="./img/logo-green.svg"
+          alt=""
+          class="gohome"
+          onclick="moveToTop()"
+        />
         <ul class="middle-nav">
-          <li><a href="#" class="nav-button nav-intro">소개</a></li>
-          <li><a href="#" class="nav-button nav-emotion">감정</a></li>
+          <li class="nav-button nav-intro" onclick="moveToStepSection()">
+            기능소개
+          </li>
+          <li class="nav-button nav-emotion" onclick="moveToEmotionSection()">
+            감정
+          </li>
+          <li class="nav-button nav-intro" onclick="moveToEnd()">서재소개</li>
         </ul>
-        <a href="./bookhouse.html" class="nav-shelf">서재</a>
+        <a href="./bookhouse.html" class="nav-shelf">서재 ></a>
       </nav>
     </header>
     <div class="main">
@@ -130,8 +139,8 @@
           <h3>FeeLSNAP</h3>
           <h2>최명후<br />myoughoo4510@gmail.com</h2>
           <div class="foot-menu">
-            <a href="#">기능소개</a>
-            <a href="#">감정</a>
+            <div onclick="moveToStepSection()">기능소개</div>
+            <div onclick="moveToEmotionSection()">감정</div>
             <a href="./bookhouse.html">서재</a>
           </div>
           <div class="my-url">

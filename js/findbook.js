@@ -9,40 +9,43 @@ const emotionConfig = {
     fear: { keywords: ["용기", "극복"], category: "자기계발" }
 };
 
+// 책 검색 함수
 async function searchBooks(emotion) {
     const config = emotionConfig[emotion];
     const uniqueBooks = new Map();
 
-    // 모든 키워드에 대해 최대 50권씩 요청
     for (let keyword of config.keywords) {
-        const response = await fetch(`https://dapi.kakao.com/v3/search/book?query=${keyword}&size=50`, {
-            headers: {
-                Authorization: `KakaoAK ${apiKey}`
-            }
-        });
+        try {
+            const response = await fetch(`https://dapi.kakao.com/v3/search/book?query=${keyword}&size=50`, {
+                headers: {
+                    Authorization: `KakaoAK ${apiKey}`
+                }
+            });
 
-        const data = await response.json();
+            if (!response.ok) throw new Error("Failed to fetch books from Kakao API");
 
-        data.documents?.forEach((book) => {
-            const title = book.title;
+            const data = await response.json();
 
-            // 책 제목으로 중복 제거
-            if (!uniqueBooks.has(title)) {
-                uniqueBooks.set(title, {
-                    title: title,
-                    authors: book.authors.length ? book.authors : ["Unknown Author"],
-                    thumbnail: book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image",
-                    description: book.contents || "No description available",
-                    infoLink: book.url
-                });
-            }
-        });
+            data.documents?.forEach((book) => {
+                const title = book.title;
+
+                if (!uniqueBooks.has(title)) {
+                    uniqueBooks.set(title, {
+                        title: title,
+                        authors: book.authors.length ? book.authors : ["Unknown Author"],
+                        thumbnail: book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image",
+                        description: book.contents || "No description available",
+                        infoLink: book.url
+                    });
+                }
+            });
+        } catch (error) {
+            console.error(`Error fetching books for keyword "${keyword}":`, error);
+        }
     }
 
-    // 300권 이상 중복 제거된 데이터를 수집
     const allBooks = Array.from(uniqueBooks.values());
 
-    // 6권을 랜덤으로 선택
     let selectedBooks = [];
     if (allBooks.length > 6) {
         selectedBooks = allBooks.sort(() => 0.5 - Math.random()).slice(0, 6);
@@ -50,7 +53,6 @@ async function searchBooks(emotion) {
         selectedBooks = allBooks;
     }
 
-    // 6권 미만일 경우 대체 정보 추가
     while (selectedBooks.length < 6) {
         selectedBooks.push({
             title: "Book Not Available",
@@ -64,24 +66,94 @@ async function searchBooks(emotion) {
     return selectedBooks;
 }
 
-async function startEmotionDetection() {
-    try {
-        // 감정 분석 요청
-        const response = await fetch("http://127.0.0.1:5000/start_emotion_detection", { method: "POST" });
-        const data = await response.json();
-        const detectedEmotion = data.emotion;
+// 감정 분석 종료 처리
+async function stopDetection(stream, emotionCounts) {
+    stream.getTracks().forEach(track => track.stop()); // 스트림 종료
 
-        // 감정에 맞는 도서 추천
-        const books = await searchBooks(detectedEmotion);
+    if (emotionCounts.length > 0) {
+        const emotion = getMostCommonEmotion(emotionCounts);
+        const books = await searchBooks(emotion); // 책 검색
 
-        // 도서 목록을 sessionStorage에 저장
         sessionStorage.setItem("bookList", JSON.stringify(books));
-        sessionStorage.setItem("emotion", detectedEmotion);
+        sessionStorage.setItem("emotion", emotion);
 
         window.location.href = "bookshelf.html";
-    } catch (error) {
-        console.error("Error during emotion detection:", error);
+    } else {
+        console.error("No emotions detected");
     }
 }
 
+// 감정 분석 시작
+async function startEmotionDetection() {
+    const videoElement = document.createElement('video'); // 화면에 추가하지 않는 비디오 요소 생성
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+
+    // 카메라 스트림 시작
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    videoElement.srcObject = stream;
+
+    const emotionCounts = [];
+    const startTime = Date.now();
+
+    // 비디오를 숨기기 위해 autoplay 설정
+    videoElement.autoplay = true;
+    videoElement.style.display = 'none'; // 비디오를 화면에 보이지 않게 설정
+
+    // 비디오가 로드되면 캔버스 크기와 동기화
+    videoElement.addEventListener("loadedmetadata", () => {
+        canvas.width = videoElement.videoWidth;
+        canvas.height = videoElement.videoHeight;
+
+        processFrame();
+    });
+
+    const processFrame = async () => {
+        const elapsedTime = Date.now() - startTime;
+        if (elapsedTime > 3000) {
+            stopDetection(stream, emotionCounts);
+            return;
+        }
+
+        // 캔버스에 비디오 프레임을 그리기
+        context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+        const frame = canvas.toDataURL('image/jpeg');
+
+        try {
+            const response = await fetch("http://127.0.0.1:5000/start_emotion_detection", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ image: frame })
+            });
+
+            if (!response.ok) throw new Error("Failed to detect emotion");
+
+            const data = await response.json();
+            const detectedEmotion = data.emotion;
+
+            if (detectedEmotion) {
+                emotionCounts.push(detectedEmotion);
+            }
+        } catch (error) {
+            console.error("Error detecting emotion:", error);
+        }
+
+        requestAnimationFrame(processFrame);
+    };
+}
+
+// 감정 리스트에서 가장 많이 나온 감정을 찾는 함수
+function getMostCommonEmotion(emotionCounts) {
+    const emotionFrequency = emotionCounts.reduce((acc, emotion) => {
+        acc[emotion] = (acc[emotion] || 0) + 1;
+        return acc;
+    }, {});
+
+    const mostCommonEmotion = Object.entries(emotionFrequency).reduce((a, b) => b[1] > a[1] ? b : a);
+    return mostCommonEmotion[0]; // 가장 많이 나온 감정 반환
+}
+
+// 감정 인식 프로세스 시작
 startEmotionDetection();
