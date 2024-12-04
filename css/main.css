@@ -41,6 +41,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     background-color: #F5F5F5;
     cursor: default;
@@ -50,28 +51,6 @@ body {
     background-position: center; /* 중앙 정렬 */
     background-repeat: no-repeat; /* 반복 방지 */
     background-attachment: fixed; /* 배경 고정 */
-}
-
-::-webkit-scrollbar {
-    width: 14px;
-    height: 14px;
-}
-
-::-webkit-scrollbar-thumb {
-    outline: none;
-    border-radius: 10px;
-    border: 4px solid transparent;
-    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.15);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    border: 4px solid transparent;
-    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.3);
-}
-
-::-webkit-scrollbar-track {
-    box-shadow: none;
-    background-color: transparent;
 }
 
 header{
