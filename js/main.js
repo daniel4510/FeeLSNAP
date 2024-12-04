@@ -1,3 +1,17 @@
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          const cell = entry.target;
+          cell.classList.add('visible');
+      } else {
+          cell.classList.remove('visible');
+      }
+  });
+});
+
+document.querySelectorAll('.cell').forEach(cell => observer.observe(cell));
+
+
 async function moveToLoading() {
   window.location.href = "loading.html";
 }
@@ -10,7 +24,7 @@ function moveToTop() {
 }
 
 function moveToStepSection() {
-  document.querySelector(".stepbystep").scrollIntoView({ behavior: "smooth" });
+  document.querySelector(".stepbystep").scrollIntoView({ top: 150, behavior: "smooth" });
 }
 
 function moveToEmotionSection() {
@@ -27,6 +41,7 @@ function selectEmotion(emotion) {
   window.location.href = "emotionloading.html";
 }
 
+window.body.style.overflowX = "hidden";
 
 
 

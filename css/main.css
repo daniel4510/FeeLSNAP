@@ -45,6 +45,11 @@ body {
     background-color: #F5F5F5;
     cursor: default;
     -ms-overflow-style: none;
+    background-image: url('../img/main-background.svg'); /* 이미지 경로 */
+    background-size: cover; /* 화면을 채우되, 잘릴 수 있음 */
+    background-position: center; /* 중앙 정렬 */
+    background-repeat: no-repeat; /* 반복 방지 */
+    background-attachment: fixed; /* 배경 고정 */
 }
 
 ::-webkit-scrollbar {
@@ -101,26 +106,25 @@ nav img {
     font-family: 'Pretendard-Bold';
 }
 
-/* 메인 섹션 */
+
+
 .main {
-    height: 982px;
+    min-height: 100vh; /* 전체 화면 높이에 맞춤 */
+    width: 100vw; /* 전체 화면 너비에 맞춤 */
     text-align: center;
-    background-image: url('../img/main-background.svg');
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: contain;
-    overflow-y: auto; /* 수직 스크롤 활성화 */
-    overflow-x: hidden; /* 수평 스크롤 비활성화 */
-    display: flex; /* 플렉스를 사용하여 정렬 */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
-  }
-  
+
+    /* 배경 이미지 설정 */
+    
+}
+
+
 /* 초기 상태 */
 .mainpage {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(20%);
     transition: opacity 0.3s ease, transform 0.3s ease; /* 부드러운 애니메이션 */
   }
   
@@ -177,8 +181,8 @@ nav img {
 }
 
 .transition-background {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #BAE3DD);
-    height: 1273px;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #BAE3DD);
+    height: 100vh;
 }
 
 .stepbystep {
@@ -196,6 +200,7 @@ nav img {
     width: 462px;
     color: #3F3E55;
     margin: 41px 0 60px 0;
+    margin-top: 150px;
 }
 
 .first-box,
@@ -237,7 +242,8 @@ nav img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 1049px;
+    height: 100vh;
+    background-color: #F5F5F5;
 }
 
 .emotions h1 {
@@ -296,6 +302,17 @@ nav img {
         }
     }
 }
+
+.cell.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+.cell {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 
   .cell .title {
     font-weight: bold;

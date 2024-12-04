@@ -34,10 +34,11 @@
 }
 
 .footer {
-    height: 1038px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
+    background-color: #F5F5F5;
 }
 
 .shelf {
