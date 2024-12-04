@@ -54,7 +54,7 @@ books.forEach((book) => {
 
   const saveButton = document.createElement("button");
   saveButton.classList.add("save-button");
-  saveButton.innerHTML = '<div><span>서재</span><span>에</span><span>추가</span></div>';
+  saveButton.innerHTML = '<div><span>내</span><span>서재</span><span>담기</span></div>';
 
   // 이미 서재에 있는 책인지 확인
   const isDuplicate = bookHouse.some(
