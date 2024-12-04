@@ -8,12 +8,40 @@
   </head>
   <body>
     <div class="loading">
-      <h1 id="loading-text">
-        감정을 읽는중이에요<span class="dots">...</span>
-      </h1>
-      <video id="video" autoplay></video>
-    </div>
+      <div class="title">
+        <h1 id="loading-text">
+          감정을 읽는중이에요<span class="dots">...</span>
+        </h1>
+        <video id="video" autoplay></video>
+      </div>
+      <div class="container">
+        <div class="title-box">
+          <h2 class="noncamera-title">카메라가 없으신가요?</h1>
+          <h3>하루동안 느낀 오늘의 감정을 골라주세요</h3>
+        </div>
+        <hr class="divider" />
+        <div class="emotion-container">
+          <div class="emotion-box happy" onclick="selectEmotion('happy')">
+            <h1>행복</h1>
+          </div>
+          <div class="emotion-box sad" onclick="selectEmotion('sad')">
+            <h1>슬픔</h1>
+          </div>
+          <div class="emotion-box angry" onclick="selectEmotion('angry')">
+            <h1>화남</h1>
+          </div>
+          <div class="emotion-box surprise" onclick="selectEmotion('surprise')">
+            <h1>놀라움</h1>
+          </div>
+          <div class="emotion-box happy" onclick="selectEmotion('neutral')">
+            <h1>평범</h1>
+          </div>
+        </div>
+      </div>
+      </div>
+  
     <script src="./js/loading.js"></script>
     <script src="./js/findbook.js"></script>
+     <script src="./js/main.js"></script>
   </body>
 </html>

@@ -28,7 +28,7 @@ const changeText = () => {
 
     // 인덱스 업데이트
     currentIndex = nextIndex;
-  }, 2000); // 2초마다 텍스트 변경
+  }, 3000); // 2초마다 텍스트 변경
 };
 
 // 애니메이션 시작
