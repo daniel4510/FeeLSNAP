@@ -28,8 +28,6 @@ function selectEmotion(emotion) {
 }
 
 
-// 가로 스크롤 막기
-window.body.style.overflowX = "hidden";
 
 
 
