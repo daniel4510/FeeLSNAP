@@ -175,3 +175,11 @@ document.querySelectorAll('.save-button').forEach(button => {
     textContent.split('').map(char => char === ' ' ? '&nbsp;' : char).join('</span><span>') + 
     '</span></div>';
 });
+
+
+function moveToLobby(){
+  window.location.href = "index.html";
+}
+function moveToHouse(){
+  window.location.href = "bookhouse.html";
+}

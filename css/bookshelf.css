@@ -6,7 +6,7 @@
 }
 
 * {
-    overscroll-behavior-y: none;
+    overscroll-behavior: none;
     margin: 0;
     padding: 0;
     width: auto;
@@ -19,6 +19,34 @@ body {
     height: 100vh;
 }
 
+.buttons {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons h1{
+    cursor: pointer;
+    padding: 50px;
+    font-family: 'Pretendard-Bold';
+    font-size: 30px;
+}
+
+.back {
+    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    background: linear-gradient(to right, #45E3CD, #18B09B 80%);
+    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+}
+
+.bookhouse {
+    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    background: linear-gradient(to left, #45E3CD, #18B09B 80%);
+    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+}
+
+
 .bookshelf {
     display: flex;
     font-family: 'Pretendard-Bold';
@@ -29,7 +57,6 @@ body {
 
 /* 책장 타이틀 */
 .bookshelf h1 {
-    margin-top: 87px;
     color: #3F3E55;
     font-size: 60px;
     text-align: center;

@@ -98,10 +98,6 @@
 
   transition: all 0.3s ease-out;
 
-  h1 {
-    color: #516965;
-  }
-
   &:hover {
     transform: scale(1.04);
     transition: all 0.3s ease-out;
@@ -113,8 +109,14 @@
   font-size: 22px;
 }
 
-.emotion-box.happy:hover {h1{color:#FFC107}}
-.emotion-box.sad:hover {h1{color:#4682B4}}
-.emotion-box.angry:hover {h1{color:#D32F2F}}
-.emotion-box.surprise:hover {h1{color:#E0CC19}}
-.emotion-box.neutral:hover {h1{color:#00CED1}}
+.emotion-box.happy{h1{color:#FFC107}}
+.emotion-box.sad {h1{color:#4682B4}}
+.emotion-box.angry {h1{color:#D32F2F}}
+.emotion-box.surprise {h1{color:#E0CC19}}
+.emotion-box.neutral {h1{color:#00CED1}}
+
+.emotion-box.happy:hover {h1{color:#D1A316}}
+.emotion-box.sad:hover {h1{color:#436D90}}
+.emotion-box.angry:hover {h1{color:#A82828}}
+.emotion-box.surprise:hover {h1{color:#AC9D19}}
+.emotion-box.neutral:hover {h1{color:#11A9AB}}
