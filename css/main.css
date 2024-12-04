@@ -53,11 +53,29 @@ body {
 }
 
 ::-webkit-scrollbar {
-    display: none;
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.3);
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: none;
+    background-color: transparent;
 }
 
 header{
-    width: auto;
+    width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
@@ -109,30 +127,64 @@ nav img {
 
 
 .main {
-    min-height: 100vh; /* 전체 화면 높이에 맞춤 */
-    width: 100vw; /* 전체 화면 너비에 맞춤 */
+    min-height: 1500px; /* 120vh -> 픽셀 기준 (1080px) */
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    /* 배경 이미지 설정 */
-    
 }
 
 
-/* 초기 상태 */
 .mainpage {
-    opacity: 1;
-    transform: translateY(20%);
-    transition: opacity 0.3s ease, transform 0.3s ease; /* 부드러운 애니메이션 */
-  }
-  
-  .transition-title {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease; /* 부드러운 애니메이션 */
-  }
+    position: fixed; /* 항상 고정 상태 */
+    top: 50px; /* 초기 고정 위치 */
+    left: 50%; /* 중앙 정렬 */
+    transform: translateX(-50%); /* 수평 중앙 정렬 */
+    transition: none; /* JS로 관리하므로 transition 제거 */
+    opacity: 1; /* 초기 투명도 */
+}
+
+
+.transition-title {
+    position: fixed; /* 항상 고정 상태 */
+    opacity: 0; /* 기본값: 투명 */
+    position: absolute; /* 기본값: 스크롤 따라 움직임 */
+    top: 500px; /* 초기 고정 위치 */
+    left: 50%; /* 중앙 정렬 */
+    transform: translateX(-50%); /* 수평 중앙 정렬 */
+    font-size: 40px;
+    font-family: 'Pretendard-Bold';
+    text-align: center;
+    transition: none; /* JS로 관리하므로 transition 제거 */
+    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    background: linear-gradient(to right, #29D2BB, #00A891 50%);
+    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+    z-index: -1;
+}
+
+.title {
+    margin-top: 216px; /* 198px -> 약간 여유 */
+    font-size: 60px;
+    font-family: 'Pretendard-Bold';
+    color: #3F3E55;
+}
+
+.main button {
+    margin-top: 45px;
+    width: 181.1px;
+    height: 55.39px;
+    border-radius: 45px;
+    border-style: none;
+    background-color: #3F3E55;
+    color: #F5F5F5;
+    font-size: 17.58px;
+    cursor: pointer;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+
   
 
 .title{
