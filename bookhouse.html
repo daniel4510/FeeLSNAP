@@ -7,42 +7,37 @@
     <link rel="stylesheet" href="./css/bookhouse.css" />
   </head>
   <body>
+    <div class="backtomain" onclick="moveToLobby()">< 메인화면으로</div>
     <div class="bookhouse">
-      <h1>My Bookhouse</h1>
-      <!-- 초기화 버튼 -->
-      <button id="clearButton" class="clear-button">서재 초기화</button>
-      <!-- 감정 필터 -->
-      <div class="filter-bar">
-        <button class="filter-button" data-emotion="all">All</button>
-        <button class="filter-button" data-emotion="happy">Happy</button>
-        <button class="filter-button" data-emotion="sad">Sad</button>
-        <button class="filter-button" data-emotion="angry">Angry</button>
-        <button class="filter-button" data-emotion="surprise">Surprise</button>
-        <button class="filter-button" data-emotion="neutral">Neutral</button>
+      <div class="titleclear">
+        <h1>서재</h1>
+        <!-- 초기화 버튼 -->
+        <button id="clearButton" class="clear-button">서재 초기화</button>
+      </div>
+      <div class="buttonsearch">
+        <!-- 감정 필터 -->
+        <div class="filter-bar">
+          <button class="filter-button" data-emotion="all"></button>
+          <button class="filter-button" data-emotion="happy"></button>
+          <button class="filter-button" data-emotion="sad"></button>
+          <button class="filter-button" data-emotion="angry"></button>
+          <button class="filter-button" data-emotion="surprise"></button>
+          <button class="filter-button" data-emotion="neutral"></button>
+        </div>
+        <!-- 검색창 -->
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="책 이름을 입력하세요"
+          />
+          <img src="./img/search-img.svg" alt="" />
+        </div>
       </div>
 
-      <!-- 검색창 -->
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search books..." />
-      </div>
+      <!-- 책 선반 -->
       <div class="shelf" id="bookShelf"></div>
     </div>
-
-    <!-- 책 세부 정보 -->
-    <div id="bookModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img id="modalThumbnail" alt="Book Cover" />
-        <h2 id="modalTitle"></h2>
-        <p id="modalAuthor"></p>
-        <p id="modalEmotion"></p>
-        <p id="modalDate"></p>
-        <a id="modalLink" href="#" target="_blank">More Details</a>
-        <!-- 삭제 버튼 -->
-        <button id="deleteButton" class="delete-button">삭제</button>
-      </div>
-    </div>
-
     <script src="./js/bookhouse.js"></script>
   </body>
 </html>

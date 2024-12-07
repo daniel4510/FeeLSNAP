@@ -34,7 +34,7 @@
 }
 
 .footer {
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -84,7 +84,7 @@
 }
 
 .foot {
-    height: 446px;
+    height: 500px;
     background-color: #00A891;
     margin-top: 49px;
     display: flex;
