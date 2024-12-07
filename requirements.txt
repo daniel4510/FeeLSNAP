@@ -1,5 +1,5 @@
 flask-cors==2.1.0
-opencv-python==4.5.5.64
+opencv-python-headless==4.5.5.64
 numpy==1.26.4
 fer==0.1.0
 pip==24.0
