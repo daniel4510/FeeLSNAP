@@ -1,7 +1,8 @@
-Flask==2.1.2
 flask-cors==2.1.0
 opencv-python==4.5.5.64
 numpy==1.26.4
 fer==0.1.0
 pip==24.0
 setuptools==70.3.0
+flask==2.1.2
+werkzeug==2.2.3
