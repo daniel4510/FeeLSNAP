@@ -8,7 +8,7 @@ from fer import FER
 app = Flask(__name__)
 
 # CORS 설정
-CORS(app, resources={r"/*": {"origins": "*"}})  # 모든 도메인 허용 (안전하지 않을 수 있음)
+CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5001"}})  # 프론트엔드 서버의 주소로 설정
 
 # FER 모델 초기화
 emotion_detector = FER()
