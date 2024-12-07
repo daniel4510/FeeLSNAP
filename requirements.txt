@@ -6,3 +6,4 @@ pip==24.0
 setuptools==70.3.0
 flask==2.1.2
 werkzeug==2.2.3
+gunicorn
