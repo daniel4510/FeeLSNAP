@@ -8,7 +8,7 @@ from fer import FER
 app = Flask(__name__)
 
 # CORS 설정
-CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5001"}})  # 프론트엔드 서버의 주소로 설정
+CORS(app, resources={r"/*": {"origins": "*"}})  # 모든 출처 허용
 
 # FER 모델 초기화
 emotion_detector = FER()
@@ -30,9 +30,18 @@ def get_dominant_emotion(image_data):
         print(f"Error decoding or processing image: {e}")
         return "neutral"
 
-@app.route("/start_emotion_detection", methods=["POST"])
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add("Access-Control-Allow-Origin", "*")  # 모든 출처 허용
+    response.headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")  # 허용되는 메서드
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")  # 허용되는 헤더
+    return response
+
+@app.route("/start_emotion_detection", methods=["OPTIONS", "POST"])
 def start_emotion_detection():
     try:
+        if request.method == "OPTIONS":
+            return "", 200  # preflight 요청을 허용
         data = request.get_json()
         image_data = data.get("image")
         if not image_data:
