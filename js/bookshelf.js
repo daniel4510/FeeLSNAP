@@ -123,8 +123,11 @@ function saveToBookhouse(book, button) {
     authors: book.authors.length ? book.authors : ["Unknown Author"],
     thumbnail: book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image",
     infoLink: book.infoLink || "#",
-    emotion: sessionStorage.getItem("emotion") || "Unknown",
+    emotion: sessionStorage.getItem("emotion") || "UNKNOWN",
     date: currentDate,
+    content: book.description || "내용이 없습니다.", // 도서 소개
+    publishedDate: book.datetime ? book.datetime.split("T")[0] : "UNKNOWN", // 출판일
+    publisher: book.publisher || "UNKNOWN", // 출판사
   };
 
   const isDuplicate = bookHouse.some(
@@ -160,6 +163,8 @@ function saveToBookhouse(book, button) {
     alert("이미 서재에 추가된 책입니다.");
   }
 }
+
+
 
 
 
