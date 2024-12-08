@@ -5,4 +5,5 @@ opencv-contrib-python==4.5.3.56
 fer==0.1.0
 flask-cors==5.0.0
 numpy==1.21.0
-setuptools==75.6.0
+setuptools>=75.6.0
+
