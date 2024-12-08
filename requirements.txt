@@ -1,5 +1,5 @@
-setuptools==75.6.0  # 최신 버전으로 설정
-six==1.16.0  # six 라이브러리 추가
+setuptools>=75.6.0
+six==1.16.0
 wheel==0.45.1  # wheel 추가
 scikit-build==0.18.1  # scikit-build 추가
 numpy==1.21.0  # numpy 버전 명시
