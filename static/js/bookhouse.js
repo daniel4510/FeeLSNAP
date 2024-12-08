@@ -5,28 +5,28 @@ const filterButtons = document.querySelectorAll(".filter-button");
 
 const emotionImages = {
   happy: {
-    active: "./img/house-btn/happy-btn-on.svg",
-    inactive: "./img/house-btn/happy-btn.svg"
+    active: '../static/img/house-btn/happy-btn-on.svg',
+    inactive: '../static/img/house-btn/happy-btn.svg'
   },
   sad: {
-    active: "./img/house-btn/sad-btn-on.svg",
-    inactive: "./img/house-btn/sad-btn.svg"
+    active: "../static/img/house-btn/sad-btn-on.svg",
+    inactive: "../static/img/house-btn/sad-btn.svg"
   },
   angry: {
-    active: "./img/house-btn/angry-btn-on.svg",
-    inactive: "./img/house-btn/angry-btn.svg"
+    active: "../static/img/house-btn/angry-btn-on.svg",
+    inactive: "../static/img/house-btn/angry-btn.svg"
   },
   surprise: {
-    active: "./img/house-btn/surprise-btn-on.svg",
-    inactive: "./img/house-btn/surprise-btn.svg"
+    active: "../static/img/house-btn/surprise-btn-on.svg",
+    inactive: "../static/img/house-btn/surprise-btn.svg"
   },
   neutral: {
-    active: "./img/house-btn/neutral-btn-on.svg",
-    inactive: "./img/house-btn/neutral-btn.svg"
+    active: "../static/img/house-btn/neutral-btn-on.svg",
+    inactive: "../static/img/house-btn/neutral-btn.svg"
   },
   all: {
-    active: "./img/house-btn/all-btn-on.svg",  // all 버튼 active 이미지 경로
-    inactive: "./img/house-btn/all-btn.svg" // all 버튼 inactive 이미지 경로
+    active: "../static/img/house-btn/all-btn-on.svg",  // all 버튼 active 이미지 경로
+    inactive: "../static/img/house-btn/all-btn.svg" // all 버튼 inactive 이미지 경로
   }
 };
 
@@ -184,5 +184,5 @@ document.querySelector(".search-bar img").addEventListener("click", function() {
 });
 
 function moveToLobby(){
-  window.location.href = "index.html";
+  window.location.href = "/";
 }

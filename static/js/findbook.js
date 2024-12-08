@@ -84,7 +84,7 @@ async function stopDetection(stream, emotionCounts) {
     sessionStorage.setItem("bookList", JSON.stringify(books));
     sessionStorage.setItem("emotion", emotion);
 
-    window.location.href = "bookshelf.html";
+    window.location.href = "/bookshelf";
   } else {
     console.error("No emotions detected");
   }

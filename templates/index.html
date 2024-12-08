@@ -10,15 +10,21 @@
       href="https://fonts.googleapis.com/css2?family=Prosto+One&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/footer.css') }}"
+    />
   </head>
   <body>
     <header>
       <nav class="nav">
         <img
           class="logo"
-          src="./img/logo-green.svg"
+          src="{{ url_for('static', filename='img/logo-green.svg') }}"
           alt=""
           class="gohome"
           onclick="moveToTop()"
@@ -32,7 +38,7 @@
           </li>
           <li class="nav-button nav-intro" onclick="moveToEnd()">서재소개</li>
         </ul>
-        <a href="./bookhouse.html" class="nav-shelf">서재 ></a>
+        <a href="/bookhouse" class="nav-shelf">서재 ></a>
       </nav>
     </header>
     <div class="main">
@@ -79,21 +85,30 @@
             <div class="title">Happy</div>
             <div class="text">행복의 서재</div>
             <div class="arrow">
-              <img src="./img/arrow/happy_arrow.svg" alt="" />
+              <img
+                src="{{ url_for('static', filename='img/arrow/happy_arrow.svg') }}"
+                alt=""
+              />
             </div>
           </div>
           <div class="cell sad" onclick="selectEmotion('sad')">
             <div class="title">Sad</div>
             <div class="text">슬픔에서의 지혜</div>
             <div class="arrow">
-              <img src="./img/arrow/sad_arrow.svg" alt="" />
+              <img
+                src="{{ url_for('static', filename='img/arrow/sad_arrow.svg') }}"
+                alt=""
+              />
             </div>
           </div>
           <div class="cell angry" onclick="selectEmotion('angry')">
             <div class="title">Angry</div>
             <div class="text">마음의 안정</div>
             <div class="arrow">
-              <img src="./img/arrow/angry_arrow.svg" alt="" />
+              <img
+                src="{{ url_for('static', filename='img/arrow/angry_arrow.svg') }}"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -103,14 +118,20 @@
             <div class="title">Surprise</div>
             <div class="text">상상력을 자극하는 이야기 나무</div>
             <div class="arrow">
-              <img src="./img/arrow/suprise_arrow.svg" alt="" />
+              <img
+                src="{{ url_for('static', filename='img/arrow/suprise_arrow.svg') }}"
+                alt=""
+              />
             </div>
           </div>
           <div class="cell neutral" onclick="selectEmotion('neutral')">
             <div class="title">Neutral</div>
             <div class="text">일상의 즐거움</div>
             <div class="arrow">
-              <img src="./img/arrow/neutral_arrow.svg" alt="" />
+              <img
+                src="{{ url_for('static', filename='img/arrow/neutral_arrow.svg') }}"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -119,7 +140,10 @@
     <section class="footer">
       <div class="shelf">
         <div class="shelf-first">
-          <img src="./img/footer-shlef.svg" alt="" />
+          <img
+            src="{{ url_for('static', filename='img/footer-shlef.svg') }}"
+            alt=""
+          />
         </div>
         <div class="shelf-second">
           <h1><span>서재</span>에<br />당신의 이야기를<br />담아보세요.</h1>
@@ -134,7 +158,10 @@
         </div>
         <div class="foot-section2">
           <a href="#">
-            <img src="./img/logo-white.svg" alt="logo" />
+            <img
+              src="{{ url_for('static', filename='img/logo-white.svg') }}"
+              alt="logo"
+            />
           </a>
           <h3>FeeLSNAP</h3>
           <h2>최명후<br />myoughoo4510@gmail.com</h2>
@@ -148,17 +175,20 @@
               href="https://github.com/daniel4510/FeelSNAP_cmh/"
               target="_blank"
             >
-              <img src="./img/github.svg" alt="" />
+              <img src="{{ url_for('static', filename='img/github.svg') }}""
+              alt="" />
             </a>
             <a href="https://www.instagram.com/mwho.12_/" target="_blank">
-              <img src="./img/instagram.svg" alt="" />
+              <img
+                src="{{ url_for('static', filename='img/instagram.svg') }}"
+                alt=""
+              />
             </a>
           </div>
         </div>
       </div>
     </section>
-
-    <script src="./js/main.js"></script>
-    <script src="./js/textchange.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/textchange.js') }}"></script>
   </body>
 </html>

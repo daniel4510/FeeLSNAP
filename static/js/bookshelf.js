@@ -1,6 +1,6 @@
 // 뒤로 가기 버튼 동작 감지
 window.addEventListener("popstate", function () {
-  window.location.href = "index.html";
+  window.location.href = "/";
 });
 
 // bookshelf.html가 로드될 때 브라우저 히스토리 상태 추가
@@ -72,7 +72,7 @@ books.forEach((book) => {
   
     // 체크 아이콘 생성
     const checkIcon = document.createElement("img");
-    checkIcon.src = "./img/check-icon.svg";
+    checkIcon.src = "../static/img/check-icon.svg";
     checkIcon.alt = "Added";
     checkIcon.style.width = "20px";
     checkIcon.style.height = "20px";
@@ -150,7 +150,7 @@ function saveToBookhouse(book, button) {
 
     // 체크 아이콘 추가
     const checkIcon = document.createElement("img");
-    checkIcon.src = "./img/check-icon.svg";
+    checkIcon.src = "../static/img/check-icon.svg";
     checkIcon.alt = "Added";
     checkIcon.style.width = "20px";
     checkIcon.style.height = "20px";
@@ -183,8 +183,8 @@ document.querySelectorAll('.save-button').forEach(button => {
 
 
 function moveToLobby(){
-  window.location.href = "index.html";
+  window.location.href = "/";
 }
 function moveToHouse(){
-  window.location.href = "bookhouse.html";
+  window.location.href = "/bookhouse";
 }

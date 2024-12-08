@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FeelSNAP</title>
-    <link rel="stylesheet" href="./css/bookshelf.css" />
-    <link rel="stylesheet" href="./css/shelfbutton.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bookshelf.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/shelfbutton.css') }}"
+    />
   </head>
   <body>
     <div class="buttons">
@@ -18,6 +24,6 @@
       <div class="book-grid" id="bookGrid"></div>
     </div>
 
-    <script src="./js/bookshelf.js"></script>
+    <script src="{{ url_for('static', filename='js/bookshelf.js') }}"></script>
   </body>
 </html>

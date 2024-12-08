@@ -55,3 +55,24 @@ def start_emotion_detection():
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/bookshelf')
+def bookshelf():
+    return render_template('bookshelf.html')
+
+@app.route('/loading')
+def loading():
+    return render_template('loading.html')
+
+@app.route('/bookhouse')
+def bookhouse():
+    return render_template('bookhouse.html')
+
+@app.route('/emotionloading')
+def emotionloading():
+    return render_template('emotionloading.html')

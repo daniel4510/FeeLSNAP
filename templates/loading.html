@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FeelSNAP</title>
-    <link rel="stylesheet" href="./css/loading.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loading.css') }}" />
   </head>
   <body>
     <div class="loading">
@@ -40,8 +40,8 @@
       </div>
       </div>
   
-    <script src="./js/loading.js"></script>
-    <script src="./js/findbook.js"></script>
-     <script src="./js/main.js"></script>
+    <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/findbook.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>

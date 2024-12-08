@@ -1,9 +1,9 @@
 async function moveToLoading() {
-  window.location.href = "loading.html";
+  window.location.href = "/loading";
 }
 
 async function moveToBookhouse() {
-  window.location.href = "bookhouse.html";
+  window.location.href = "/bookhouse";
 }
 
 function moveToTop() {
@@ -25,7 +25,7 @@ function moveToEnd() {
 // 감정 선택 시 emotionloading.html로 이동
 function selectEmotion(emotion) {
   sessionStorage.setItem("selectedEmotion", emotion); // 선택한 감정을 저장
-  window.location.href = "emotionloading.html";
+  window.location.href = "/emotionloading";
 }
 
 window.addEventListener("scroll", () => {

@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FeelSNAP</title>
-    <link rel="stylesheet" href="./css/bookhouse.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bookhouse.css') }}"
+    />
   </head>
   <body>
     <div class="backtomain" onclick="moveToLobby()">< 메인화면으로</div>
@@ -31,13 +34,16 @@
             id="searchInput"
             placeholder="책 이름을 입력하세요"
           />
-          <img src="./img/search-img.svg" alt="" />
+          <img
+            src="{{ url_for('static', filename='img/search-img.svg') }}"
+            alt=""
+          />
         </div>
       </div>
 
       <!-- 책 선반 -->
       <div class="shelf" id="bookShelf"></div>
     </div>
-    <script src="./js/bookhouse.js"></script>
+    <script src="{{ url_for('static', filename='js/bookhouse.js') }}"></script>
   </body>
 </html>

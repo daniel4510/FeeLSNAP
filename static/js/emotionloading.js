@@ -21,40 +21,53 @@ async function searchBooksForEmotion() {
   const uniqueBooks = new Map();
 
   for (let keyword of config.keywords) {
-    const response = await fetch(
-      `https://dapi.kakao.com/v3/search/book?query=${keyword}&size=50`,
-      {
-        headers: {
-          Authorization: `KakaoAK ${apiKey}`,
-        },
+    try {
+      const response = await fetch(
+        `https://dapi.kakao.com/v3/search/book?query=${keyword}&size=50`,
+        {
+          headers: {
+            Authorization: `KakaoAK ${apiKey}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        console.error("책 검색 API 호출 실패", response.status);
+        continue;
       }
-    );
 
-    const data = await response.json();
+      const data = await response.json();
 
-    data.documents?.forEach((book) => {
-      const title = book.title;
-
-      // 중복 제거
-      if (!uniqueBooks.has(title)) {
-        uniqueBooks.set(title, {
-          title: title,
-          authors: book.authors.length ? book.authors : ["Unknown Author"],
-          thumbnail:
-            book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image",
-          description: book.contents || "No description available",
-          infoLink: book.url,
-        });
+      if (!data.documents) {
+        console.error("책 정보를 찾을 수 없습니다.");
+        continue;
       }
-    });
+
+      data.documents.forEach((book) => {
+        const title = book.title;
+
+        // 중복 제거
+        if (!uniqueBooks.has(title)) {
+          uniqueBooks.set(title, {
+            title: title,
+            authors: book.authors.length ? book.authors : ["Unknown Author"],
+            thumbnail:
+              book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image",
+            description: book.contents || "No description available",
+            infoLink: book.url,
+          });
+        }
+      });
+    } catch (error) {
+      console.error("책 검색 중 오류 발생:", error);
+    }
   }
 
   // 최대 6권만 선택
   const allBooks = Array.from(uniqueBooks.values());
-  const selectedBooks =
-    allBooks.length > 6
-      ? allBooks.sort(() => 0.5 - Math.random()).slice(0, 6)
-      : allBooks;
+  const selectedBooks = allBooks.length > 6
+    ? allBooks.sort(() => 0.5 - Math.random()).slice(0, 6)
+    : allBooks.slice(0, 6);
 
   // 부족한 경우 대체 데이터 추가
   while (selectedBooks.length < 6) {
@@ -82,8 +95,8 @@ async function loadBooksForEmotion() {
 
     // 2초 뒤 bookshelf.html로 이동
     setTimeout(() => {
-      window.location.href = "bookshelf.html";
-    }, 3000);
+      window.location.href = '/bookshelf';
+    }, 2000); // 2초로 수정하여 사용자가 알림을 볼 시간을 줌
   } catch (error) {
     console.error("책 검색 중 오류 발생:", error);
   }

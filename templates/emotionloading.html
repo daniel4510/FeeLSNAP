@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FeelSNAP</title>
-    <link rel="stylesheet" href="./css/loading.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/loading.css') }}"
+    />
   </head>
   <body>
     <div class="loading">
@@ -14,7 +17,7 @@
         </h1>
       </div>
     </div>
-    <script src="./js/loading.js"></script>
-    <script src="./js/emotionloading.js"></script>
+    <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/emotionloading.js') }}"></script>
   </body>
 </html>
