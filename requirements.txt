@@ -1,8 +1,9 @@
 Flask==2.0.1
 gunicorn==20.1.0
-opencv-python-headless==4.5.3.56
+opencv-python-headless==4.5.3.56  # GUI 의존성 제거
 fer==0.1.0
 flask-cors==5.0.0
-numpy==1.23.0
-setuptools==75.6.0
-python-3.11
+numpy==1.23.0  # numpy 버전 변경 (다른 버전에서 문제가 발생할 수 있음)
+setuptools>=75.6.0  # 최신 버전 사용
+pip>=24.3.1  # pip 최신 버전 사용
+python==3.11  # Python 3.11 사용
