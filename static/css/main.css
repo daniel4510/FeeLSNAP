@@ -34,7 +34,8 @@
 }
 
 * {
-    overscroll-behavior: none; /* 모든 방향에서 바운스 효과 비활성화 */
+    overscroll-behavior: none;
+    /* 모든 방향에서 바운스 효과 비활성화 */
     margin: 0;
     padding: 0;
     width: auto;
@@ -46,15 +47,21 @@ body {
     background-color: #F5F5F5;
     cursor: default;
     -ms-overflow-style: none;
-    background-image: url('../img/main-background.svg'); /* 이미지 경로 */
-    background-size: cover; /* 화면을 채우되, 잘릴 수 있음 */
-    background-position: center; /* 중앙 정렬 */
-    background-repeat: no-repeat; /* 반복 방지 */
-    background-attachment: fixed; /* 배경 고정 */
+    background-image: url('../img/main-background.svg');
+    /* 이미지 경로 */
+    background-size: cover;
+    /* 화면을 채우되, 잘릴 수 있음 */
+    background-position: center;
+    /* 중앙 정렬 */
+    background-repeat: no-repeat;
+    /* 반복 방지 */
+    background-attachment: fixed;
+    /* 배경 고정 */
 }
 
-header{
+header {
     width: 100vw;
+    height: 80px;
     position: fixed;
     top: 0;
     left: 0;
@@ -62,17 +69,23 @@ header{
     display: inline-block;
     justify-items: center;
     z-index: 10;
+    backdrop-filter: blur(10px);
+
+    /* 블러 효과 추가 */
+    background-color: rgba(245, 245, 245, 0.7);
+    /* 반투명 배경 */
 }
+
 
 .nav {
     width: 1030.64px;
-    height: 35.5px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 17.5px;
     margin-top: 27.25px;
-}   
+}
 
 a {
     text-decoration: none;
@@ -83,7 +96,7 @@ nav img {
 }
 
 
-.nav .middle-nav{
+.nav .middle-nav {
     display: flex;
     list-style: none;
 }
@@ -92,7 +105,7 @@ nav img {
     margin: 0 40px;
 }
 
-.nav .middle-nav li{
+.nav .middle-nav li {
     color: #3F3E55;
     font-family: 'Pretendard-SemiBold';
     cursor: pointer;
@@ -106,7 +119,8 @@ nav img {
 
 
 .main {
-    min-height: 1500px; /* 120vh -> 픽셀 기준 (1080px) */
+    min-height: 1500px;
+    /* 120vh -> 픽셀 기준 (1080px) */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -115,35 +129,52 @@ nav img {
 
 
 .mainpage {
-    position: fixed; /* 항상 고정 상태 */
-    top: 50px; /* 초기 고정 위치 */
-    left: 50%; /* 중앙 정렬 */
-    transform: translateX(-50%); /* 수평 중앙 정렬 */
-    transition: none; /* JS로 관리하므로 transition 제거 */
-    opacity: 1; /* 초기 투명도 */
+    position: fixed;
+    /* 항상 고정 상태 */
+    top: 50px;
+    /* 초기 고정 위치 */
+    left: 50%;
+    /* 중앙 정렬 */
+    transform: translateX(-50%);
+    /* 수평 중앙 정렬 */
+    transition: none;
+    /* JS로 관리하므로 transition 제거 */
+    opacity: 1;
+    /* 초기 투명도 */
 }
 
 
 .transition-title {
-    position: fixed; /* 항상 고정 상태 */
-    opacity: 0; /* 기본값: 투명 */
-    position: absolute; /* 기본값: 스크롤 따라 움직임 */
-    top: 500px; /* 초기 고정 위치 */
-    left: 50%; /* 중앙 정렬 */
-    transform: translateX(-50%); /* 수평 중앙 정렬 */
+    position: fixed;
+    /* 항상 고정 상태 */
+    opacity: 0;
+    /* 기본값: 투명 */
+    position: absolute;
+    /* 기본값: 스크롤 따라 움직임 */
+    top: 500px;
+    /* 초기 고정 위치 */
+    left: 50%;
+    /* 중앙 정렬 */
+    transform: translateX(-50%);
+    /* 수평 중앙 정렬 */
     font-size: 40px;
     font-family: 'Pretendard-Bold';
     text-align: center;
-    transition: none; /* JS로 관리하므로 transition 제거 */
-    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    transition: none;
+    /* JS로 관리하므로 transition 제거 */
+    color: transparent;
+    /* 텍스트 색상을 투명하게 설정 */
     background: linear-gradient(to right, #29D2BB, #00A891 50%);
-    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
-    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+    -webkit-background-clip: text;
+    /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text;
+    /* 텍스트 안에 그라데이션을 표시 */
     z-index: -1;
 }
 
 .title {
-    margin-top: 216px; /* 198px -> 약간 여유 */
+    margin-top: 216px;
+    /* 198px -> 약간 여유 */
     font-size: 60px;
     font-family: 'Pretendard-Bold';
     color: #3F3E55;
@@ -164,9 +195,9 @@ nav img {
 
 
 
-  
 
-.title{
+
+.title {
     margin-top: 198px;
     font-size: 60px;
     font-family: 'Pretendard-Bold';
@@ -176,27 +207,34 @@ nav img {
 .change-text {
     position: relative;
     width: 1000px;
-    height: 42px; /* 텍스트 한 줄 높이 */
-    overflow: hidden; /* 컨테이너 밖 텍스트 숨김 */
-  }
-  
-  .change-text div {
+    height: 42px;
+    /* 텍스트 한 줄 높이 */
+    overflow: hidden;
+    /* 컨테이너 밖 텍스트 숨김 */
+}
+
+.change-text div {
     position: absolute;
     width: 100%;
     left: 0;
     font-family: 'Pretendard-SemiBold';
     font-size: 35px;
-    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    color: transparent;
+    /* 텍스트 색상을 투명하게 설정 */
     background: linear-gradient(to right, #29D2BB, #00A891 50%);
-    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
-    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+    -webkit-background-clip: text;
+    /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text;
+    /* 텍스트 안에 그라데이션을 표시 */
     text-align: center;
-    transition: transform 0.5s ease; /* 슬라이드 애니메이션 */
-  }
-  
-  .change-text div.visible {
-    font-weight: bold; /* 강조 스타일 추가 가능 */
-  }
+    transition: transform 0.5s ease;
+    /* 슬라이드 애니메이션 */
+}
+
+.change-text div.visible {
+    font-weight: bold;
+    /* 강조 스타일 추가 가능 */
+}
 
 .main button {
     margin-top: 45px;
@@ -256,7 +294,7 @@ nav img {
     left: 133px;
 }
 
-.first-box h1 > span {
+.first-box h1>span {
     font-family: 'Pretendard-Bold';
     color: #00A891;
 }
@@ -285,7 +323,7 @@ nav img {
     margin-top: 173px;
 }
 
-.emotions h1 > span {
+.emotions h1>span {
     color: #6B6A80;
 }
 
@@ -298,23 +336,30 @@ nav img {
 
 .table {
     display: flex;
-    flex-direction: column; /* 각 행을 세로로 정렬 */
-    gap: 45px; /* 행 간격 */
-    width: 1112px; /* 전체 테이블 너비 */
+    flex-direction: column;
+    /* 각 행을 세로로 정렬 */
+    gap: 45px;
+    /* 행 간격 */
+    width: 1112px;
+    /* 전체 테이블 너비 */
     margin-top: 41px;
 }
 
 .row {
-    display: flex; /* 행을 가로로 배치 */
+    display: flex;
+    /* 행을 가로로 배치 */
 
-    gap: 51px; /* 셀 간 간격 (선택) */
+    gap: 51px;
+    /* 셀 간 간격 (선택) */
 }
 
 .cell {
-    width: 333px; /* 셀의 너비 */
-    height: 238px; /* 셀의 높이 */
+    width: 333px;
+    /* 셀의 너비 */
+    height: 238px;
+    /* 셀의 높이 */
     background: #F5F5F5;
-    box-shadow: 0 7px 14px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.15);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.15);
     border-radius: 26.25px;
     padding: 20px;
     text-align: center;
@@ -325,9 +370,11 @@ nav img {
 
     &:hover {
         transform: scale(1.02);
-        border: 2px solid; /* hover 시 보이도록 색상 변경 */
+        border: 2px solid;
+        /* hover 시 보이도록 색상 변경 */
         transition: all 0.3s ease-out;
         cursor: pointer;
+
         .arrow {
             display: flex;
         }
@@ -338,6 +385,7 @@ nav img {
     opacity: 1;
     transform: scale(1);
 }
+
 .cell {
     opacity: 0;
     transform: scale(0.9);
@@ -345,7 +393,7 @@ nav img {
 }
 
 
-  .cell .title {
+.cell .title {
     font-weight: bold;
     font-family: 'Pretendard-Bold';
     font-size: 17.5px;
@@ -354,30 +402,64 @@ nav img {
     position: absolute;
     left: 37px;
     top: -150px;
-  }
+}
 
-  .cell .text {
+.cell .text {
     color: #3F3E55;
     font-family: 'Pretendard-Bold';
     font-size: 22px;
     position: absolute;
     top: 90px;
     left: 37px;
-  }
+}
 
-  .cell .arrow {
+.cell .arrow {
     display: none;
     position: absolute;
     bottom: 22px;
     right: 23.5px;
-  }
+}
 
-  .cell .lg {
+.cell .lg {
     flex-grow: 2;
-  }
+}
 
-  .cell.happy { .title{color: #FFC107;} border-color: #FFC107;}
-  .cell.sad { .title{color: #4682B4;} border-color: #4682B4;}
-  .cell.angry { .title{color: #D32F2F;} border-color: #D32F2F;}
-  .cell.surprise { .title{color: #E0CC19;} border-color: #E0CC19;}
-  .cell.neutral { .title{color: #00CED1;} border-color: #00CED1;}
+.cell.happy {
+    .title {
+        color: #FFC107;
+    }
+
+    border-color: #FFC107;
+}
+
+.cell.sad {
+    .title {
+        color: #4682B4;
+    }
+
+    border-color: #4682B4;
+}
+
+.cell.angry {
+    .title {
+        color: #D32F2F;
+    }
+
+    border-color: #D32F2F;
+}
+
+.cell.surprise {
+    .title {
+        color: #E0CC19;
+    }
+
+    border-color: #E0CC19;
+}
+
+.cell.neutral {
+    .title {
+        color: #00CED1;
+    }
+
+    border-color: #00CED1;
+}

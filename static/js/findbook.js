@@ -10,68 +10,68 @@ const emotionConfig = {
 };
 
 async function searchBooks(emotion) {
-    const config = emotionConfig[emotion];
-    const uniqueBooks = new Map();
-  
-    for (let keyword of config.keywords) {
-      try {
-        const response = await fetch(
-          `https://dapi.kakao.com/v3/search/book?query=${keyword}&size=50`,
-          {
-            headers: {
-              Authorization: `KakaoAK ${apiKey}`
-            }
+  const config = emotionConfig[emotion];
+  const uniqueBooks = new Map();
+
+  for (let keyword of config.keywords) {
+    try {
+      const response = await fetch(
+        `https://dapi.kakao.com/v3/search/book?query=${keyword}&size=50`,
+        {
+          headers: {
+            Authorization: `KakaoAK ${apiKey}`
           }
-        );
-  
-        if (!response.ok) throw new Error("Failed to fetch books from Kakao API");
-  
-        const data = await response.json();
-  
-        data.documents?.forEach((book) => {
-          const title = book.title;
-  
-          if (!uniqueBooks.has(title)) {
-            uniqueBooks.set(title, {
-              title: title,
-              authors: book.authors.length ? book.authors : ["Unknown"],
-              thumbnail: book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image",
-              description: book.content || "내용이 없습니다.", // `content`로 수정
-              infoLink: book.url || book.sale_url || "#", // URL 대체 처리
-              publisher: book.publisher || "Unknown publisher",
-              datetime: book.datetime ? book.datetime.split("T")[0] : "Unknown date"
-            });
-          }
-        });
-      } catch (error) {
-        console.error(`Error fetching books for keyword "${keyword}":`, error);
-      }
-    }
-  
-    const allBooks = Array.from(uniqueBooks.values());
-  
-    let selectedBooks = [];
-    if (allBooks.length > 6) {
-      selectedBooks = allBooks.sort(() => 0.5 - Math.random()).slice(0, 6);
-    } else {
-      selectedBooks = allBooks;
-    }
-  
-    while (selectedBooks.length < 6) {
-      selectedBooks.push({
-        title: "Book Not Available",
-        authors: ["Unknown Author"],
-        thumbnail: "https://via.placeholder.com/100x150?text=No+Image",
-        description: "No description available", // 기본값 유지
-        infoLink: "#", // 기본 URL 처리
-        publisher: "Unknown publisher",
-        datetime: "Unknown date"
+        }
+      );
+
+      if (!response.ok) throw new Error("Failed to fetch books from Kakao API");
+
+      const data = await response.json();
+
+      data.documents?.forEach((book) => {
+        const title = book.title;
+
+        if (!uniqueBooks.has(title)) {
+          uniqueBooks.set(title, {
+            title: title,
+            authors: book.authors.length ? book.authors : ["Unknown"],
+            thumbnail: book.thumbnail || "https://via.placeholder.com/100x150?text=No+Image",
+            description: book.content || "내용이 없습니다.", // `content`로 수정
+            infoLink: book.url || book.sale_url || "#", // URL 대체 처리
+            publisher: book.publisher || "Unknown publisher",
+            datetime: book.datetime ? book.datetime.split("T")[0] : "Unknown date"
+          });
+        }
       });
+    } catch (error) {
+      console.error(`Error fetching books for keyword "${keyword}":`, error);
     }
-  
-    return selectedBooks;
   }
-  
+
+  const allBooks = Array.from(uniqueBooks.values());
+
+  let selectedBooks = [];
+  if (allBooks.length > 6) {
+    selectedBooks = allBooks.sort(() => 0.5 - Math.random()).slice(0, 6);
+  } else {
+    selectedBooks = allBooks;
+  }
+
+  while (selectedBooks.length < 6) {
+    selectedBooks.push({
+      title: "Book Not Available",
+      authors: ["Unknown Author"],
+      thumbnail: "https://via.placeholder.com/100x150?text=No+Image",
+      description: "No description available", // 기본값 유지
+      infoLink: "#", // 기본 URL 처리
+      publisher: "Unknown publisher",
+      datetime: "Unknown date"
+    });
+  }
+
+  return selectedBooks;
+}
+
 
 // 감정 분석 종료 처리
 async function stopDetection(stream, emotionCounts) {
@@ -140,7 +140,7 @@ async function startEmotionDetection() {
     const frame = canvas.toDataURL("image/jpeg");
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/start_emotion_detection", {
+      const response = await fetch("https://feelsnap.me/start_emotion_detection", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
