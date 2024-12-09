@@ -63,13 +63,13 @@ books.forEach((book) => {
 
   if (isDuplicate) {
     console.log("Duplicate detected for book:", book.title);
-  
+
     // 기존 버튼의 모든 자식 요소 제거
     while (saveButton.firstChild) {
       saveButton.removeChild(saveButton.firstChild);
     }
     console.log("Cleared button innerHTML:", saveButton.innerHTML);
-  
+
     // 체크 아이콘 생성
     const checkIcon = document.createElement("img");
     checkIcon.src = "../static/img/check-icon.svg";
@@ -78,20 +78,20 @@ books.forEach((book) => {
     checkIcon.style.height = "20px";
     checkIcon.style.background = "transparent";
     console.log("Created checkIcon element:", checkIcon);
-  
+
     // 버튼에 체크 아이콘 추가
     saveButton.appendChild(checkIcon);
     console.log("Appended checkIcon to saveButton:", saveButton.innerHTML);
-  
+
     // 버튼 스타일 업데이트
     saveButton.style.backgroundColor = "#0FC0A8";
     saveButton.style.cursor = "default";
-  
+
     // 애니메이션 클래스 제거
     saveButton.classList.add("clicked-button");
     saveButton.classList.add("clicked-button-wrap");
     saveButton.classList.remove("save-button"); // hover 애니메이션 비활성화
-  
+
     // 클릭 비활성화는 마지막에 설정
     setTimeout(() => {
       saveButton.disabled = true;
@@ -101,9 +101,9 @@ books.forEach((book) => {
     // 버튼 클릭 이벤트 설정
     saveButton.onclick = (event) => saveToBookhouse(book, event.target);
   }
-  
-  
-  
+
+
+
 
   bookCard.appendChild(coverImage);
   bookCard.appendChild(title);
@@ -176,15 +176,16 @@ document.querySelectorAll('.save-button').forEach(button => {
   const textContent = button.textContent.trim();
 
   // 공백을 HTML 엔티티 &nbsp;로 대체하여 처리
-  button.innerHTML = '<div><span>' + 
-    textContent.split('').map(char => char === ' ' ? '&nbsp;' : char).join('</span><span>') + 
+  button.innerHTML = '<div><span>' +
+    textContent.split('').map(char => char === ' ' ? '&nbsp;' : char).join('</span><span>') +
     '</span></div>';
 });
 
 
-function moveToLobby(){
+function moveToLobby() {
   window.location.href = "/";
 }
-function moveToHouse(){
+function moveToHouse() {
   window.location.href = "/bookhouse";
 }
+document.body.style.overflow = "hidden";

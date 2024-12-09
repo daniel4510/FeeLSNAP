@@ -16,7 +16,7 @@
 /* 전체 배경 및 텍스트 중앙 정렬 */
 body {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #BAE3DD);
-    height: 100vh;
+    height: 1500px;
 }
 
 .buttons {
@@ -25,7 +25,7 @@ body {
     justify-content: space-between;
 }
 
-.buttons h1{
+.buttons h1 {
     cursor: pointer;
     padding: 50px;
     font-family: 'Pretendard-Bold';
@@ -33,17 +33,23 @@ body {
 }
 
 .back {
-    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    color: transparent;
+    /* 텍스트 색상을 투명하게 설정 */
     background: linear-gradient(to right, #45E3CD, #18B09B 80%);
-    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
-    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+    -webkit-background-clip: text;
+    /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text;
+    /* 텍스트 안에 그라데이션을 표시 */
 }
 
 .bookhouse {
-    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    color: transparent;
+    /* 텍스트 색상을 투명하게 설정 */
     background: linear-gradient(to left, #45E3CD, #18B09B 80%);
-    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
-    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+    -webkit-background-clip: text;
+    /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text;
+    /* 텍스트 안에 그라데이션을 표시 */
 }
 
 
@@ -65,10 +71,13 @@ body {
 .bookshelf h3 {
     font-size: 30px;
     margin-top: 53px;
-    color: transparent; /* 텍스트 색상을 투명하게 설정 */
+    color: transparent;
+    /* 텍스트 색상을 투명하게 설정 */
     background: linear-gradient(to right, #45E3CD, #18B09B 80%);
-    -webkit-background-clip: text; /* 배경을 텍스트 클립으로 설정 */
-    background-clip: text; /* 텍스트 안에 그라데이션을 표시 */
+    -webkit-background-clip: text;
+    /* 배경을 텍스트 클립으로 설정 */
+    background-clip: text;
+    /* 텍스트 안에 그라데이션을 표시 */
 }
 
 /* 책 카드 그리드 */

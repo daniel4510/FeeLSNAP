@@ -294,6 +294,33 @@ nav img {
     left: 133px;
 }
 
+.box-icon {
+    position: absolute;
+    top: 70px;
+    left: 137px;
+}
+
+.box-img {
+    position: absolute;
+    bottom: 0;
+    right: 110px;
+}
+
+.first-box p,
+.second-box p,
+.third-box p {
+    font-family: 'Pretendard-Bold';
+    font-size: 20px;
+    color: #535267;
+    position: absolute;
+    bottom: 34px;
+    left: 63px;
+}
+
+.third-box p {
+    color: #8F8EA4;
+}
+
 .first-box h1>span {
     font-family: 'Pretendard-Bold';
     color: #00A891;
@@ -311,7 +338,7 @@ nav img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 1000px;
     background-color: #F5F5F5;
 }
 
