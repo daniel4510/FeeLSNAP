@@ -18,8 +18,8 @@
         2. 감정 선택 로딩
     3. 책장 화면
     4. 서재 화면
-3. 기술스택
-4. 개발기간 및 작업관리
+3. 개발기간 및 작업관리
+4. 기술스택
 5. 레퍼런스
 6. 라이센스
 
@@ -154,4 +154,17 @@
   - 작업은 Git을 사용하여 관리했습니다.
 - 유지보수
   - 새로운 아이디어나 개선 사항은 주기적으로 업데이트하고 있습니다.
- 
+
+<br/>
+
+ ## 기술 스택
+
+![기술스택](https://github.com/user-attachments/assets/2440cd95-94f1-42d8-a3c2-272a2937c72d)
+
+- **Backend**: Flask (Python)
+- **Frontend**: HTML (Templates), CSS, JavaScript (Static Files)
+- **WSGI Server**: Gunicorn
+- **Reverse Proxy**: Nginx
+- **Hosting**: AWS EC2
+
+<br/>
