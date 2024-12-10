@@ -49,7 +49,6 @@
 <br/><br/>
 
 **기능소개 화면**
-- 스크롤 한 메인화면에서 더 스크롤하면 화면이 서서히 바뀝니다.
 
 ![step by step](https://github.com/user-attachments/assets/25454c9a-3a77-4d92-86b4-16113887b8f5)
 
