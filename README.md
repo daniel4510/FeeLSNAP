@@ -58,7 +58,6 @@
 
 **감정이동 화면**
 
-<img width="1659" alt="스크린샷 2024-12-11 오전 4 26 45" src="https://github.com/user-attachments/assets/edd02443-ccfb-427e-9156-5d876ef2cae7">
 <img width="1659" alt="스크린샷 2024-12-11 오전 4 27 30" src="https://github.com/user-attachments/assets/368995ae-c3a8-467f-a19f-2a47829ce30b">
 
 - 카메라 없이도 책을 추천받을 수 있어요. hover시 색이 바뀌고 클릭하면 (감정선택 로딩화면)으로 이동합니다.
