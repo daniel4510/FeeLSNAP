@@ -149,7 +149,7 @@
 **작업 관리**
 - 디자인
   - 전체적인 UI/UX 디자인은 Figma를 사용하여 설계했습니다.
-  - [피그마 링크]<https://www.figma.com/design/Nlmkh9A5E4eFSpmilJ37dU/FeeLSNAP?node-id=0-1&t=ENhnqVyjZI15Fu20-1>
+  - [피그마 링크](https://www.figma.com/design/Nlmkh9A5E4eFSpmilJ37dU/FeeLSNAP?node-id=0-1&t=ENhnqVyjZI15Fu20-1)
 - 개발
   - 작업은 Git을 사용하여 관리했습니다.
 - 유지보수
