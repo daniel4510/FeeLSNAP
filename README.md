@@ -182,4 +182,4 @@
 
 ## 라이센스
 
-
+This project is licensed under the MIT License
