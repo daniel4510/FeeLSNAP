@@ -33,6 +33,11 @@
 
 ## 서비스 사용법
 
+### 미리보기
+
+![Uploading 화면 기록 2024년 12월 11일.gif…]()
+
+
 ### **메인화면**
 **시작화면**
 <img width="1659" alt="스크린샷 2024-12-11 오전 4 09 46" src="https://github.com/user-attachments/assets/02a3eb73-352a-4c73-9abe-71f29855e2fd">
@@ -93,6 +98,10 @@
 <br/>
 
 ### **책장 화면**
+
+![화면 기록 2024-12-11 오후 5 39 26 (2)](https://github.com/user-attachments/assets/3b76fb55-f026-4e1f-a661-d34a826db5cc)
+
+- 감정을 읽고 책장으로 옵니다.
 
 <img width="1659" alt="스크린샷 2024-12-11 오전 4 33 41" src="https://github.com/user-attachments/assets/04af8e4a-2238-4c59-a8d3-04722cd26af6">
 
