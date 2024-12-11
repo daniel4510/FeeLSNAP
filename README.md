@@ -178,6 +178,21 @@
 
 ## 레퍼런스
 
+|이름|링크|
+|---|---|
+|파이썬 라이브러리|&downarrow; &downarrow;|
+|Flask|https://flask.palletsprojects.com|
+|Flask-CORS|https://flask-cors.readthedocs.io|
+|OpenCV|https://opencv.org|
+|NumPy|https://numpy.org|
+|FER|https://github.com/justinshenk/fer|
+|자바스크립트 & 웹 API|&downarrow; &downarrow;|
+|Fetch API|https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API|
+|MediaDevices.getUserMedia|https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia|
+|HTMLCanvasElement.toDataURL|https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL|
+|외부 API|&downarrow; &downarrow;|
+|Kakao Book Search API|https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide#search-book|
+
 <br/>
 
 ## 라이센스
