@@ -23,11 +23,23 @@
 
 <br/>
 
-## 시작하기
+### 시작하기
 - Link
   - <https://feelsnap.me>
 - Prerequisites (선택사항)
   - 얼굴 감정 인식을 위한 카메라 (없어도 서비스 이용에 지장은 없습니다.)
+
+<br/>
+
+### 로컬에서 실행하기
+
+- **requirements를 모두 설치해주세요.**
+
+```bash
+$> gunicorn app:app
+```
+
+terminal에 뜨는 8000번 포트에 접속하시면 됩니다.
 
 <br/>
 
@@ -98,13 +110,22 @@
 
 ### **책장 화면**
 
+
 ![화면 기록 2024-12-11 오후 5 39 26 (2)](https://github.com/user-attachments/assets/3b76fb55-f026-4e1f-a661-d34a826db5cc)
 
 - 감정을 읽고 책장으로 옵니다.
 
+<br/>
+
+**추천 책 6권**
+
 <img width="1659" alt="스크린샷 2024-12-11 오전 4 33 41" src="https://github.com/user-attachments/assets/04af8e4a-2238-4c59-a8d3-04722cd26af6">
 
 - 입력받은 감정에 알맞은 책을 **카카오 도서 검색 API**를 이용해 6권 추천해줍니다. 책에 대한 자세한 정보는 더보기를 클릭해주세요.
+
+<br/>
+
+**서재에 담기**
 
 <img width="1659" alt="스크린샷 2024-12-11 오전 4 52 41" src="https://github.com/user-attachments/assets/0475089e-fe01-4ec9-9672-4feaf8c48c7f">
 
@@ -116,11 +137,15 @@
 
 <br/>
 
+**화면**
+
 <img width="1659" alt="스크린샷 2024-12-11 오전 4 37 18" src="https://github.com/user-attachments/assets/f37effab-85b4-4a99-9d5f-7655b4d9c73e">
 
 - 책장에서 담은 책을 확인할 수 있습니다. cell을 클릭하여 더 자세한 책의 정보를 탐색해보세요.
 
 <br/>
+
+**필터링**
 
 <img width="1659" alt="스크린샷 2024-12-11 오전 5 07 34" src="https://github.com/user-attachments/assets/53a19100-96d3-454e-ba70-feb6602978f8">
 
@@ -128,11 +153,15 @@
 
 <br/>
 
+**검색**
+
 <img width="1659" alt="스크린샷 2024-12-11 오전 5 08 00" src="https://github.com/user-attachments/assets/bf220e3a-47cb-4cd3-84b1-213ba2132e45">
 
 - 검색을 통해서 책을 찾을 수 있습니다.
 
 <br/>
+
+**삭제 및 초기화**
 
 <img width="1659" alt="스크린샷 2024-12-11 오전 5 16 03" src="https://github.com/user-attachments/assets/5dae96e1-ca79-4317-ad08-864049b5784d">
 
